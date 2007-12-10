@@ -184,8 +184,11 @@ int append_text (NSMutableAttributedString *msgString,
                 }
                 else if (peek_next_char (&text, stop_at) == ',')
                 {
+					int new_bg;
                     get_next_char (&text, stop_at);		// Toss out the ','
-                    bg = get_mirc_value (&text, stop_at);
+                    new_bg = get_mirc_value (&text, stop_at);
+					if(new_bg >= 0)
+						bg = new_bg;
                 }
                 
                 start = text;		// Advance 'start' past the color spec.
