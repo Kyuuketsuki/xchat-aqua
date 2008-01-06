@@ -4355,7 +4355,12 @@ handle_user_input (session *sess, char *text, int history, int nocommand)
 			"/lost+found/", "/mnt/", "/opt/",
 			"/proc/", "/root/", "/sbin/",
 			"/tmp/", "/usr/", "/var/",
-			"/gnome/", NULL};
+			"/gnome/", 
+			/* X-Chat Aqua, Mac OS X Specific*/
+			"/System/", "/Library/", "/Developer/",
+		    "/Users/", "/Volumes/", "/Applications/", 
+			/* END */
+			NULL};
 		for (i = 0; unix_dirs[i] != NULL; i++)
 			if (strncmp (text, unix_dirs[i], strlen (unix_dirs[i]))==0)
 			{
