@@ -360,7 +360,7 @@ HIThemeSegmentPosition positionTable[2][2] =
 	// same time.  I thought about this problem for quite some time and I feel this is the lesser
 	// of the evils.  Please feel free to awake from the dead and tell me what you think.
 		
-	long version = 0;
+	SInt32 version = 0;
 	Gestalt(gestaltSystemVersion, &version);
 	
 	if (version < 0x1040)
@@ -1036,6 +1036,7 @@ HIThemeSegmentPosition positionTable[2][2] =
 		[self setOrder:0 forView:outlineScroll];
 		
 		NSFont *font = [NSFont systemFontOfSize:[NSFont smallSystemFontSize]];
+		NSLayoutManager * layout_manager=[[NSLayoutManager new] autorelease];
 		
 		SGTabViewOutlineCell *data_cell = [[SGTabViewOutlineCell alloc] initTextCell:@""];
 		
@@ -1055,7 +1056,7 @@ HIThemeSegmentPosition positionTable[2][2] =
 		[outlineScroll setDocumentView:outline];
 		[outline setFrame:[outlineScroll documentVisibleRect]];
 		[outline setAutoresizingMask:NSViewWidthSizable];
-		[outline setRowHeight:[font defaultLineHeightForFont] + 1];
+		[outline setRowHeight:[layout_manager defaultLineHeightForFont:font] + 1];
 		[outline setAllowsEmptySelection:NO];
 
 		[outline setDelegate:self];

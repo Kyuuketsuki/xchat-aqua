@@ -420,7 +420,7 @@ browser_cb (char *word[], char *word_eol[], void *userdata)
 static int
 event_cb (char *word[], void *cbd)
 {
-	int event = (int) cbd;
+	int event = (int) (size_t)cbd;
 	session *sess = (session *) xchat_get_context(my_plugin_handle);
     [[AquaChat sharedAquaChat] event:event args:word session:sess];
 	return XCHAT_EAT_NONE;
