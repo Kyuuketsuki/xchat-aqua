@@ -105,7 +105,13 @@ int append_text (NSMutableAttributedString *msgString,
 		[attr setObject:[NSColor colorWithDeviceWhite:1.0 alpha:0.0] forKey:NSForegroundColorAttributeName];
 	}
 	else if (bold && bold_font)
-		[attr setObject:bold_font forKey:NSFontAttributeName];
+	{
+		if([bold_font isEqual:font])
+			/* emulate bold */
+			[attr setObject:[[NSNumber alloc] initWithInt:-3] forKey:NSStrokeWidthAttributeName];
+		else
+			[attr setObject:bold_font forKey:NSFontAttributeName];
+	}
     else if (font)
 		[attr setObject:font forKey:NSFontAttributeName];
 
