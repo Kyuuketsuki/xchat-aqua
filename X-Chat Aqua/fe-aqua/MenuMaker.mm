@@ -191,14 +191,16 @@ static MenuMaker *defaultMenuMaker;
 	
 	for (unsigned i = 0; i < (sizeof(labels) / sizeof(labels[0])); i++) {
 		test = [[NSMutableAttributedString alloc] initWithString:[labels[i] stringByAppendingString:@":	"]
-			attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:0], NSFontAttributeName, nil]];
+													  attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:0], NSFontAttributeName, nil]];
 		size = [test size];
 		if (maxUserInfoLabelWidth < size.width) maxUserInfoLabelWidth = size.width;
+		[test dealloc];
 	}
 	test = [[NSMutableAttributedString alloc] initWithString:@"	"
 			attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:0], NSFontAttributeName, nil]];
 	size = [test size];
 	userInfoTabWidth = size.width;
+	[test dealloc];
 	
 	return self;
 }

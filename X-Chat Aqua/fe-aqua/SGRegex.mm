@@ -12,7 +12,7 @@
 
 + (SGRegex *) regexWithString:(NSString *) regex nSubExpr:(int) nSubExpr
 {
-	SGRegex *me = [[self alloc] init];
+	SGRegex *me = [[[self alloc] init] autorelease];
 	
 	int flags = REG_EXTENDED | REG_ICASE;
 

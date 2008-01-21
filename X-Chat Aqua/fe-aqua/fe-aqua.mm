@@ -132,6 +132,12 @@ static int input_seq = 1;
 
 - (void)dealloc
 {
+	if(rf)
+		[rf release];
+	if(wf)
+		[wf release];
+	if(ef)
+		[ef release];
     input_list.remove (self);
     [super dealloc];
 }
@@ -404,7 +410,7 @@ browser_cb (char *word[], char *word_eol[], void *userdata)
 	{
 		NSString *command =
 			[NSString stringWithFormat:
-				@"tell application \"%s\" to Çevent WWW!OURLÈ (\"%@\")", browser, new_url];
+				@"tell application \"%s\" to Â«event WWW!OURLÂ» (\"%@\")", browser, new_url];
 		NSAppleScript *s = [[[NSAppleScript alloc] initWithSource:command] autorelease];
 		NSDictionary *errors = NULL;
 		[s executeAndReturnError:&errors];

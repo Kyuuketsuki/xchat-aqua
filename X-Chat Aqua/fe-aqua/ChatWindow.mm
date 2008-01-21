@@ -758,7 +758,7 @@ static NSImage *empty_image;
         [mi setImage:im];
         [mi setTag:-i];		// See do_mirc_color
         
-        [m addItem:mi];
+        [m addItem:[mi autorelease]];
     }
 }
 
@@ -1504,6 +1504,7 @@ static NSImage *empty_image;
             [op_voice_icon setHidden:false];
         }
     }
+	[u release];
 }
 
 - (bool) userlist_remove:(struct User *) user
