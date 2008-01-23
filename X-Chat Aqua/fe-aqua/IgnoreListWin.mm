@@ -187,7 +187,8 @@ extern "C" {
     [b setControlSize:NSSmallControlSize];
     [b setTitle:@""];
     for (int i = 1; i < [self->ignore_list_table numberOfColumns]; i ++)
-	[[[self->ignore_list_table tableColumns] objectAtIndex:i] setDataCell:b];
+		[[[self->ignore_list_table tableColumns] objectAtIndex:i] setDataCell:b];
+	[b release];
 
     [self->ignore_list_table setDataSource:self];
     [self->ignore_list_view setDelegate:self];

@@ -349,8 +349,7 @@ static NSCursor *lr_cursor;
 
     if (prefs.timestamp)
     {
-        time_t now = stamp;
-        prepend += strftime (buff, sizeof (buff), prefs.stamp_format, localtime (&now));
+        prepend += strftime (buff, sizeof (buff), prefs.stamp_format, localtime (&stamp));
     }
 
     char *tmp = text;

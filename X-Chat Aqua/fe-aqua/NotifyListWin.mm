@@ -120,7 +120,8 @@ extern "C" {
     {
         notify_per_server *lastsvr = NULL;
         bool online = false;
-        
+        oneNotify * n;
+		
         struct notify *user = (struct notify *) list->data;
         
         for (GSList *list2 = user->server_list; list2; list2 = list2->next)
@@ -133,18 +134,16 @@ extern "C" {
             if (svr->ison)
             {
                 online = true;
-                [my_items addObject:[[oneNotify alloc] initWithUser:user->name
-                                                             online:true
-                                                                svr:svr
-														   networks:user->networks]];
+				break;
             }               
         }
-        
-        if (!online)
-            [my_items addObject:[[oneNotify alloc] initWithUser:user->name
-                                                         online:false
-                                                            svr:lastsvr
-													   networks:user->networks]];
+
+		n = [[oneNotify alloc] initWithUser:user->name
+									 online:online
+										svr:lastsvr
+								   networks:user->networks];
+		[my_items addObject:n];
+		[n release];
     }
 
     [self->notify_list_table reloadData];
