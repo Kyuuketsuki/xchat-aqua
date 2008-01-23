@@ -496,7 +496,7 @@ static NSImage *empty_image;
 
 - (void) save_buffer:(NSString *) fname
 {
-    [[[chat_text textStorage] string] writeToFile:fname atomically:true];
+    [[[chat_text textStorage] string] writeToFile:fname atomically:true encoding:NSUTF8StringEncoding error:NULL];
 }
 
 - (void) highlight:(NSString *) string

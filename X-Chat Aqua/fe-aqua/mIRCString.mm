@@ -258,14 +258,9 @@ int append_text (NSMutableAttributedString *msgString,
     return msgString;
 }
 
-- (const char *) cString
+- (const char *) UTF8String
 {
-    return [[self string] cString];
-}
-
-- (const char *) lossyCString
-{
-    return [[self string] lossyCString];
+    return [[self string] UTF8String];
 }
 
 @end

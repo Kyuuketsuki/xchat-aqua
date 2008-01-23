@@ -332,12 +332,6 @@ static NSCursor *lr_cursor;
 
 - (void) print_line:(char *) text
                 len:(int) len
-{
-	[self print_line:text len:len stamp:time(NULL)];
-}
-
-- (void) print_line:(char *) text
-                len:(int) len
 			  stamp:(time_t) stamp
 {
     NSMutableAttributedString *stg = [self textStorage];    
@@ -401,6 +395,12 @@ static NSCursor *lr_cursor;
 	[self clear_lines];
 
 	[stg endEditing];
+}
+
+- (void) print_line:(char *) text
+                len:(int) len
+{
+	[self print_line:text len:len stamp:time(NULL)];
 }
 
 - (void) print_text:(const char *) const_text

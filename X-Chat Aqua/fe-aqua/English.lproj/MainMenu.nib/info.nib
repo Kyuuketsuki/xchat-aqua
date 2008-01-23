@@ -5,15 +5,13 @@
 	<key>IBFramework Version</key>
 	<string>629</string>
 	<key>IBLastKnownRelativeProjectPath</key>
-	<string>../../aquachat.xcodeproj</string>
+	<string>../../../X-Chat Aqua.xcodeproj</string>
 	<key>IBOldestOS</key>
 	<integer>3</integer>
 	<key>IBOpenObjects</key>
-	<array>
-		<integer>793</integer>
-	</array>
+	<array/>
 	<key>IBSystem Version</key>
-	<string>9A581</string>
+	<string>9B18</string>
 	<key>targetFramework</key>
 	<string>IBCocoaFramework</string>
 </dict>

@@ -334,9 +334,9 @@ strip_crap (const char *s)
     
     if (regex_valid)
     {        
-		const char *topic = [[[entry topic] string] lossyCString];
+		const char *topic = [[[entry topic] string] UTF8String];
 		if (!topic) topic = "";
-		const char *chan = [[entry chan] lossyCString];
+		const char *chan = [[entry chan] UTF8String];
 		if (!chan) chan = "";
 		
         if (topic_checked && channel_checked && 

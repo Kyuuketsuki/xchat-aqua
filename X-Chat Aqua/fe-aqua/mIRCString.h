@@ -30,7 +30,6 @@
 
 + (NSFont *) hiddenFont;
 
-- (const char *) cString;
-- (const char *) lossyCString;
+- (const char *) UTF8String;
 
 @end
