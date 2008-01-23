@@ -40,10 +40,9 @@ static int mylog (BOOL isClassMethod, const char *objectsClass, const char *impl
 @implementation SGDebug
 
 // Xcode3 can't build it
-#if 0
 + (void) setTraceEnabled:(BOOL) enable
 {
-    struct nlist nl[2];
+    struct nlist nl[3];
     nl[0].n_un.n_name = "_logObjcMessageSends";
     nl[1].n_un.n_name = "_instrumentObjcMessageSends";      // This one is exported
     nl[2].n_un.n_name = NULL;
@@ -59,7 +58,6 @@ static int mylog (BOOL isClassMethod, const char *objectsClass, const char *impl
     LogObjcMessageSendsProc proc = (LogObjcMessageSendsProc) nl[0].n_value;
     proc (enable ? mylog : 0);
 }
-#endif 
 
 @end
 

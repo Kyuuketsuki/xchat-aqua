@@ -57,4 +57,7 @@
 
 + (void) show_for_session:(session *) sess;
 
+//
+- (void) do_drawer:(id) sender;
+
 @end

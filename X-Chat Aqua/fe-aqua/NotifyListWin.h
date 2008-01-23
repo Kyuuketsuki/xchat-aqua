@@ -25,6 +25,7 @@
 	NSTextField * add_notify_nick;
 	NSTextField * add_notify_network;	
 }
+-(void) do_it;
 @end
 
 /****************************************************************************/

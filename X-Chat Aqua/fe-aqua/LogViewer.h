@@ -30,4 +30,6 @@
 
 - (void) show;
 
+////
+- (void) tableViewRemoveRows:(NSTableView *) tableView;
 @end
