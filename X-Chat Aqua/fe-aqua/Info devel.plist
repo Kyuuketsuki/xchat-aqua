@@ -9,21 +9,23 @@
 	<key>CFBundleExecutable</key>
 	<string>X-Chat Aqua Devel</string>
 	<key>CFBundleGetInfoString</key>
-	<string>X-Chat Aqua Devel version 0.15.0, Copyright 2005 Steve Green.</string>
+	<string>X-Chat Aqua Devel version 0.17.0, Copyright 2008 Steve Green.</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>X-Chat Aqua</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleIdentifier</key>
+	<string>net.sf.xchataqua</string>
 	<key>CFBundleShortVersionString</key>
-	<string>X-Chat Aqua Devel version 0.15.0</string>
+	<string>X-Chat Aqua Devel version 0.17.0</string>
 	<key>CFBundleSignature</key>
 	<string>XCHA</string>
 	<key>NSAppleScriptEnabled</key>
 	<string>YES</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright 2005 Steve Green.
+	<string>Copyright 2008 Steve Green.
 Portions copyright Peter Zelezny.
 http://xchataqua.sf.net</string>
 	<key>NSMainNibFile</key>

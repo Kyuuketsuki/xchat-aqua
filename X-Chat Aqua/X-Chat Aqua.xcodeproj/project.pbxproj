@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F0BF9B40CFE2CE900B71E4D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0BF9B30CFE2CE800B71E4D /* Growl.framework */; };
 		0F0BFA530CFE443000B71E4D /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F0BF9B30CFE2CE800B71E4D /* Growl.framework */; };
+		0F3062070D8472A80084F2CA /* Info devel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3062060D8472A80084F2CA /* Info devel.plist */; };
 		0F8EA34A0CFAA3F2001AE9AE /* cfgfiles.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3170CFAA3F2001AE9AE /* cfgfiles.c */; };
 		0F8EA34B0CFAA3F2001AE9AE /* ctcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3190CFAA3F2001AE9AE /* ctcp.c */; };
 		0F8EA34C0CFAA3F2001AE9AE /* dcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA31B0CFAA3F2001AE9AE /* dcc.c */; };
@@ -208,7 +209,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F0BF9B30CFE2CE800B71E4D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "fe-aqua/Growl.framework"; sourceTree = SOURCE_ROOT; };
+		0F0BF9B30CFE2CE800B71E4D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = "fe-aqua/Growl.framework"; sourceTree = "<group>"; };
+		0F30611F0D83C5830084F2CA /* AquaChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AquaChat.h; path = "fe-aqua/AquaChat.h"; sourceTree = "<group>"; };
+		0F3062060D8472A80084F2CA /* Info devel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info devel.plist"; path = "fe-aqua/Info devel.plist"; sourceTree = "<group>"; };
 		0F8EA3170CFAA3F2001AE9AE /* cfgfiles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cfgfiles.c; path = common/cfgfiles.c; sourceTree = "<group>"; };
 		0F8EA3180CFAA3F2001AE9AE /* cfgfiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cfgfiles.h; path = common/cfgfiles.h; sourceTree = "<group>"; };
 		0F8EA3190CFAA3F2001AE9AE /* ctcp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ctcp.c; path = common/ctcp.c; sourceTree = "<group>"; };
@@ -502,7 +505,7 @@
 		0F8EA7550CFB6BB7001AE9AE /* EditEvents.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditEvents.nib; path = "fe-aqua/EditEvents.nib"; sourceTree = "<group>"; };
 		0F8EA7560CFB6BB7001AE9AE /* EditList.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditList.nib; path = "fe-aqua/EditList.nib"; sourceTree = "<group>"; };
 		0F8EA7650CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/ChatWindow.nib"; sourceTree = "<group>"; };
-		0F8EA7670CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = "fe-aqua/English.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		0F8EA7670CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = "fe-aqua/English.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0F8EA7690CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/MainMenu.nib"; sourceTree = "<group>"; };
 		0F8EA76B0CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/UserCommands.nib"; sourceTree = "<group>"; };
 		0F8EA7700CFB6C9A001AE9AE /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = green.tiff; path = "fe-aqua/green.tiff"; sourceTree = "<group>"; };
@@ -631,6 +634,7 @@
 		0F8EA3650CFAA470001AE9AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F3062060D8472A80084F2CA /* Info devel.plist */,
 				0F8EA7900CFB6CF9001AE9AE /* SGRequest.nib */,
 				0F8EA7910CFB6CF9001AE9AE /* TabMenu.nib */,
 				0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */,
@@ -763,6 +767,7 @@
 		0F8EA3CD0CFAF7AF001AE9AE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0F30611F0D83C5830084F2CA /* AquaChat.h */,
 				0F8EA6BD0CFB347B001AE9AE /* EncodedString.h */,
 				0F8EA6BE0CFB347B001AE9AE /* EncodedString.mm */,
 				0F8EA6BF0CFB347B001AE9AE /* GLikeTimer.h */,
@@ -965,6 +970,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F0BF9B30CFE2CE800B71E4D /* Growl.framework */,
 				0F8EA7380CFB6B21001AE9AE /* libcrypto.0.9.7.dylib */,
 				0F8EA7360CFB6B07001AE9AE /* libssl.0.9.7.dylib */,
 				0F8EA70A0CFB384A001AE9AE /* Carbon.framework */,
@@ -1007,7 +1013,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0F0BF9B30CFE2CE800B71E4D /* Growl.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -1109,6 +1114,7 @@
 				0F8EA7A10CFB6CF9001AE9AE /* xchat.icns in Resources */,
 				0F8EA7A20CFB6CF9001AE9AE /* xchat.tiff in Resources */,
 				0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */,
+				0F3062070D8472A80084F2CA /* Info devel.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1347,6 +1353,7 @@
 					"fe-aqua/",
 					.,
 				);
+				INFOPLIST_FILE = "Info devel.plist";
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				XCHAT_AQUA_VERSION = 0.17.0;

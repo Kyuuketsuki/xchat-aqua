@@ -38,7 +38,7 @@ extern "C" {
 #include "XACommon.h"
 
 #import <Cocoa/Cocoa.h>
-#import <Growl/Growl.h>
+
 
 #import "AquaChat.h"
 #import "PrefsController.h"
@@ -205,9 +205,7 @@ EventInfo text_event_info[NUM_XP];
 {
     aquachat = self;
     
-#if 0
 	[GrowlApplicationBridge setGrowlDelegate:self];
-#endif
 	
 	[self load_event_info];
 	
