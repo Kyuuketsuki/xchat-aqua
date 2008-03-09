@@ -49,19 +49,24 @@ struct pevt_stage1
 
 
 static void mkdir_p (char *dir);
+static char *log_create_filename (char *channame);
 
 
 static char *
 scrollback_get_filename (session *sess, char *buf, int max)
 {
-	char *net;
+	char *net, *chan;
 
 	net = server_get_network (sess->server, FALSE);
 	if (!net)
 		return NULL;
 
-	snprintf (buf, max, "%s/scrollback/%s/%s.txt", get_xdir_fs (), net, sess->channel);
+	snprintf (buf, max, "%s/scrollback/%s/%s.txt", get_xdir_fs (), net, "");
 	mkdir_p (buf);
+	
+	chan = log_create_filename (sess->channel);
+	snprintf (buf, max, "%s/scrollback/%s/%s.txt", get_xdir_fs (), net, chan);
+	free (chan);
 
 	return buf;
 }
@@ -141,6 +146,7 @@ file_to_buffer (char *file, int *len)
 	}
 
 	*len = st.st_size;
+	close (fh);
 	return buf;
 }
 
@@ -280,6 +286,8 @@ scrollback_load (session *sess)
 		}
 	}
 
+	sess->scrollwritten = lines;
+	
 	if (lines)
 	{
 		text = ctime (&stamp);
