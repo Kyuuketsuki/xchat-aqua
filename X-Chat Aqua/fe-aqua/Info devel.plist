@@ -7,9 +7,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>X-Chat Aqua Devel</string>
+	<string>X-Chat Aqua</string>
 	<key>CFBundleGetInfoString</key>
-	<string>X-Chat Aqua Devel version 0.17.0, Copyright 2008 Steve Green.</string>
+	<string>X-Chat Aqua development version, Copyright 2008 Steve Green.</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>net.sf.xchataqua</string>
 	<key>CFBundleShortVersionString</key>
-	<string>X-Chat Aqua Devel version 0.17.0</string>
+	<string>X-Chat Aqua development version</string>
 	<key>CFBundleSignature</key>
 	<string>XCHA</string>
 	<key>NSAppleScriptEnabled</key>

@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>${PRODUCT_NAME} version ${PRODUCT_VERSION}, Copyright 2006 Steve Green.</string>
+	<string>${PRODUCT_NAME} version ${XCHAT_AQUA_VERSION}, Copyright 2008 Steve Green.</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>${PRODUCT_NAME} version ${PRODUCT_VERSION}</string>
+	<string>${PRODUCT_NAME} version ${XCHAT_AQUA_VERSION}</string>
 	<key>CFBundleSignature</key>
 	<string>XCHA</string>
 	<key>NSAppleScriptEnabled</key>
@@ -36,8 +36,8 @@
 		</dict>
 	</array>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright 2006 Steve Green.
-Portions copyright Peter Zelezny, Camillo Lugaresi.
+	<string>Copyright 2008 Steve Green.
+Portions copyright Peter Zelezny, Camillo Lugaresi, Eugene Pimenov.
 http://xchataqua.sf.net</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>

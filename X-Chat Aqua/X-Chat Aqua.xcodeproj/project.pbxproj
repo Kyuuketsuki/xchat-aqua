@@ -162,7 +162,6 @@
 		0F8EA7620CFB6BB7001AE9AE /* EditEvents.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7550CFB6BB7001AE9AE /* EditEvents.nib */; };
 		0F8EA7630CFB6BB7001AE9AE /* EditList.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7560CFB6BB7001AE9AE /* EditList.nib */; };
 		0F8EA76C0CFB6C1A001AE9AE /* ChatWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7640CFB6C1A001AE9AE /* ChatWindow.nib */; };
-		0F8EA76D0CFB6C1A001AE9AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7660CFB6C1A001AE9AE /* InfoPlist.strings */; };
 		0F8EA76E0CFB6C1A001AE9AE /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7680CFB6C1A001AE9AE /* MainMenu.nib */; };
 		0F8EA76F0CFB6C1A001AE9AE /* UserCommands.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA76A0CFB6C1A001AE9AE /* UserCommands.nib */; };
 		0F8EA7800CFB6C9A001AE9AE /* green.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7700CFB6C9A001AE9AE /* green.tiff */; };
@@ -505,7 +504,6 @@
 		0F8EA7550CFB6BB7001AE9AE /* EditEvents.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditEvents.nib; path = "fe-aqua/EditEvents.nib"; sourceTree = "<group>"; };
 		0F8EA7560CFB6BB7001AE9AE /* EditList.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = EditList.nib; path = "fe-aqua/EditList.nib"; sourceTree = "<group>"; };
 		0F8EA7650CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/ChatWindow.nib"; sourceTree = "<group>"; };
-		0F8EA7670CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = "fe-aqua/English.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		0F8EA7690CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/MainMenu.nib"; sourceTree = "<group>"; };
 		0F8EA76B0CFB6C1A001AE9AE /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = "fe-aqua/English.lproj/UserCommands.nib"; sourceTree = "<group>"; };
 		0F8EA7700CFB6C9A001AE9AE /* green.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = green.tiff; path = "fe-aqua/green.tiff"; sourceTree = "<group>"; };
@@ -662,7 +660,6 @@
 				0F8EA77E0CFB6C9A001AE9AE /* ReleaseNotes.nib */,
 				0F8EA77F0CFB6C9A001AE9AE /* ServerList.nib */,
 				0F8EA7640CFB6C1A001AE9AE /* ChatWindow.nib */,
-				0F8EA7660CFB6C1A001AE9AE /* InfoPlist.strings */,
 				0F8EA7680CFB6C1A001AE9AE /* MainMenu.nib */,
 				0F8EA76A0CFB6C1A001AE9AE /* UserCommands.nib */,
 				0F8EA74A0CFB6BB7001AE9AE /* BanList.nib */,
@@ -1085,7 +1082,6 @@
 				0F8EA7620CFB6BB7001AE9AE /* EditEvents.nib in Resources */,
 				0F8EA7630CFB6BB7001AE9AE /* EditList.nib in Resources */,
 				0F8EA76C0CFB6C1A001AE9AE /* ChatWindow.nib in Resources */,
-				0F8EA76D0CFB6C1A001AE9AE /* InfoPlist.strings in Resources */,
 				0F8EA76E0CFB6C1A001AE9AE /* MainMenu.nib in Resources */,
 				0F8EA76F0CFB6C1A001AE9AE /* UserCommands.nib in Resources */,
 				0F8EA7800CFB6C9A001AE9AE /* green.tiff in Resources */,
@@ -1266,14 +1262,6 @@
 			name = ChatWindow.nib;
 			sourceTree = "<group>";
 		};
-		0F8EA7660CFB6C1A001AE9AE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F8EA7670CFB6C1A001AE9AE /* English */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		0F8EA7680CFB6C1A001AE9AE /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1380,7 +1368,7 @@
 					"fe-aqua/",
 					.,
 				);
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Info.plist;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				XCHAT_AQUA_VERSION = 0.17.0;
