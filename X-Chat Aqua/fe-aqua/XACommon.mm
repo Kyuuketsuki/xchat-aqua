@@ -90,7 +90,7 @@ void
 nick_command_parse (session *sess, const char *cmd, const char *nick, const char *allnick)
 {
         char *buf;
-        char *host = _("Host unknown");
+        const char *host = _("Host unknown");
         struct User *user;
         int len;
 
@@ -103,7 +103,7 @@ nick_command_parse (session *sess, const char *cmd, const char *nick, const char
         buf = (char *) malloc (len);
 
         auto_insert (buf, len, (unsigned char *) cmd, 0, 0, (char *)allnick, sess->channel, "",
-					 server_get_network (sess->server, TRUE), host,
+					 server_get_network (sess->server, TRUE), (char*)host,
                      sess->server->nick, (char *)nick);
 
         nick_command (sess, buf);

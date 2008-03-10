@@ -6,3 +6,5 @@ void set_l_flag (session *sess, int enabled, int value);
 void set_k_flag (session *sess, int enabled, char *value);
 
 NSString * formatNumber (int n);
+
+extern "C" const char * XALocalizeString(const char * str);

@@ -18,6 +18,16 @@ gchar *_glib_gettext (const gchar *str) G_GNUC_FORMAT (1);
 #define N_(String) (String)
 #endif
 #else /* NLS is disabled */
+#ifdef FE_AQUA
+const char * XALocalizeString(const char *);
+#define _(String) XALocalizeString((String))
+#define N_(String) XALocalizeString(String)
+#define textdomain(String) XALocalizeString(String)
+#define gettext(String) XALocalizeString(String)
+#define dgettext(Domain,String) XALocalizeString(String)
+#define dcgettext(Domain,String,Type) XALocalizeString(String)
+#define bindtextdomain(Domain,Directory) XALocalizeString(Domain) 
+#else
 #define _(String) (String)
 #define N_(String) (String)
 #define textdomain(String) (String)
@@ -25,6 +35,7 @@ gchar *_glib_gettext (const gchar *str) G_GNUC_FORMAT (1);
 #define dgettext(Domain,String) (String)
 #define dcgettext(Domain,String,Type) (String)
 #define bindtextdomain(Domain,Directory) (Domain) 
+#endif
 #endif
 
 #endif /* __GLIBINTL_H__ */

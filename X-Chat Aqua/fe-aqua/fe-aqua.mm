@@ -1446,3 +1446,10 @@ void fe_tray_set_balloon (const char *title, const char *text)
 {
 	[[AquaChat sharedAquaChat] growl:text title:title];
 }
+
+extern "C" const char * XALocalizeString(const char * str)
+{
+	NSString * localized_str = NSLocalizedStringFromTable([NSString stringWithUTF8String:str], @"xchat", @"");
+	return [localized_str UTF8String];
+}
+
