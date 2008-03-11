@@ -27,7 +27,7 @@ extern "C" {
 
 - (id) init
 {
-    [super initWithList:&button_list fileName:@"buttons.conf" title:@"User List Buttons"];
+    [super initWithList:&button_list fileName:@"buttons.conf" title:NSLocalizedStringFromTable(@"User List Buttons", @"xchataqua", "")];
     return self;
 }
 

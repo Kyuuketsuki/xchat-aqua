@@ -1571,7 +1571,7 @@ static NSImage *empty_image;
 
 - (void) userlist_numbers
 {
-    [userlist_stats_text setStringValue:[NSString stringWithFormat:@"%d ops, %d total",
+    [userlist_stats_text setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTable(@"%d ops, %d total", @"xchat", nil),
             sess->ops, sess->total]];
 }
 

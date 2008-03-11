@@ -194,7 +194,7 @@ static NSArray *root_items;
     ColorPalette *palette = [[AquaChat sharedAquaChat] getPalette];
 
 	if ([palette nColors] != (sizeof(colors)/sizeof(colors[0])))
-		printf ("COLOR MAP OUT OF SYNC\n");
+		NSLog(@"COLOR MAP OUT OF SYNC\n");
 
     for (int i = 0; i < [palette nColors]; i ++)
     	[colors [i] setColor:[palette getColor:i]];
@@ -425,20 +425,20 @@ static NSArray *root_items;
 		my_prefs [i] = xx [i];
 	}
 
-    NSArray *interface = [NSArray arrayWithObjects:@"Interface",
-                                    leaf (@"Text box", 0),
-                                    leaf (@"Input box", 1),
-                                    leaf (@"User list", 2),
-                                    leaf (@"Tabs", 3),
-                                    leaf (@"Other", 4),
-                                    leaf (@"Colors", 5), NULL];
-    NSArray *chatting = [NSArray arrayWithObjects:@"Chatting",
-                                    leaf (@"General", 6),
-                                    leaf (@"Logging", 7),
-                                    leaf (@"Events/Sounds", 8), NULL];
-    NSArray *network = [NSArray arrayWithObjects:@"Network",
-                                    leaf (@"Network setup", 9),
-                                    leaf (@"DCC Settings", 10), NULL];
+    NSArray *interface = [NSArray arrayWithObjects:NSLocalizedStringFromTable(@"Interface", @"xchat", @""),
+                                    leaf (NSLocalizedStringFromTable(@"Text box", @"xchat", @""), 0),
+                                    leaf (NSLocalizedStringFromTable(@"Input box", @"xchat", @""), 1),
+                                    leaf (NSLocalizedStringFromTable(@"User list", @"xchat", @""), 2),
+                                    leaf (NSLocalizedStringFromTable(@"Tabs", @"xchat", @""), 3),
+                                    leaf (NSLocalizedStringFromTable(@"Other", @"xchat", @""), 4),
+                                    leaf (NSLocalizedStringFromTable(@"Colors", @"xchat", @""), 5), NULL];
+    NSArray *chatting = [NSArray arrayWithObjects:NSLocalizedStringFromTable(@"Chatting", @"xchat", @""),
+                                    leaf (NSLocalizedStringFromTable(@"General", @"xchat", @""), 6),
+                                    leaf (NSLocalizedStringFromTable(@"Logging", @"xchat", @""), 7),
+                                    leaf (NSLocalizedStringFromTable(@"Events/Sounds", @"xchat", @""), 8), NULL];
+    NSArray *network = [NSArray arrayWithObjects:NSLocalizedStringFromTable(@"Network", @"xchat", @""),
+                                    leaf (NSLocalizedStringFromTable(@"Network setup", @"xchat", @""), 9),
+                                    leaf (NSLocalizedStringFromTable(@"DCC Settings", @"xchat", @""), 10), NULL];
     root_items = [[NSArray arrayWithObjects:interface, chatting, network, NULL] retain];
 
     [category_list setDataSource:self];

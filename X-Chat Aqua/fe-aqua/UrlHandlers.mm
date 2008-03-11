@@ -26,7 +26,7 @@ extern "C" {
 
 - (id) init
 {
-    [super initWithList:&urlhandler_list fileName:@"urlhandlers.conf" title:@"URL Handlers"];
+    [super initWithList:&urlhandler_list fileName:@"urlhandlers.conf" title:NSLocalizedStringFromTable(@"URL Handlers", @"xchataqua", "")];
     return self;
 }
 

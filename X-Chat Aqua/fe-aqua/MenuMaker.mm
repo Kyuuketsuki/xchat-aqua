@@ -183,7 +183,8 @@ static MenuMaker *defaultMenuMaker;
 
 - (MenuMaker *)init
 {
-	NSString *labels[] = {@"Real Name", @"User", @"Country", @"Server", @"Away Msg", @"Last Msg"};
+	NSString *labels[] = {NSLocalizedStringFromTable(@"Real Name", @"xchat", @""), NSLocalizedStringFromTable(@"User", @"xchat", @""), NSLocalizedStringFromTable(@"Country", @"xchat", @""),
+						  NSLocalizedStringFromTable(@"Server", @"xchat", @""), NSLocalizedStringFromTable(@"Away Msg", @"xchat", @""), NSLocalizedStringFromTable(@"Last Msg", @"xchat", @"")};
 	NSMutableAttributedString *test;
 	NSSize size;
 
@@ -244,24 +245,24 @@ static MenuMaker *defaultMenuMaker;
 	NSMenu *userMenu = [[[NSMenu alloc] initWithTitle:@""] autorelease];
 	[userMenu setAutoenablesItems:false];
 
-	[userMenu addItem:[self userInfoItemWithLabel:@"Real Name" value:user->realname]];
-	[userMenu addItem:[self userInfoItemWithLabel:@"User" value:user->hostname]];
-	[userMenu addItem:[self userInfoItemWithLabel:@"Country" value:user->hostname ? country(user->hostname) : NULL]];
-	[userMenu addItem:[self userInfoItemWithLabel:@"Server" value:user->servername]];
+	[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Real Name", @"xchat", @"") value:user->realname]];
+	[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"User", @"xchat", @"") value:user->hostname]];
+	[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Country", @"xchat", @"") value:user->hostname ? country(user->hostname) : NULL]];
+	[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Server", @"xchat", @"") value:user->servername]];
 
 	if (user->away) {
 		struct away_msg *away = server_away_find_message (sess->server, user->nick);
 		if (away) {
 			char *msg = away->message ? strip_color(away->message, -1, STRIP_ALL) : nil;
-			[userMenu addItem:[self userInfoItemWithLabel:@"Away Msg" value:msg]];
+			[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Away Msg", @"xchat", @"") value:msg]];
 			if (msg) free(msg);
 		}
 	}
 	
 	if (user->lasttalk)
-		snprintf(min, sizeof(min), "%u minutes ago", (unsigned int) ((time (0) - user->lasttalk) / 60));
+		snprintf(min, sizeof(min), XALocalizeString("%u minutes ago"), (unsigned int) ((time (0) - user->lasttalk) / 60));
 	
-	[userMenu addItem:[self userInfoItemWithLabel:@"Last Msg" value:user->lasttalk ? min : NULL]];
+	[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Last Msg", @"xchat", @"") value:user->lasttalk ? min : NULL]];
 
 	return userMenu;
 }
@@ -297,10 +298,10 @@ static MenuMaker *defaultMenuMaker;
 	[menu addItem:[self commandItemWithName:[chan UTF8String] command:"join %s" target:chan session:sess]];
 	[menu addItem:[NSMenuItem separatorItem]];
 	if (find_channel(sess->server, (char *)[chan UTF8String])) {
-		[menu addItem:[self commandItemWithName:"Part Channel" command:"part %s" target:chan session:sess]];
-		[menu addItem:[self commandItemWithName:"Cycle Channel" command:"cycle" target:NULL session:sess]];
+		[menu addItem:[self commandItemWithName:XALocalizeString("Part Channel") command:"part %s" target:chan session:sess]];
+		[menu addItem:[self commandItemWithName:XALocalizeString("Cycle Channel") command:"cycle" target:NULL session:sess]];
 	} else {
-		[menu addItem:[self commandItemWithName:"Join Channel" command:"join %s" target:chan session:sess]];
+		[menu addItem:[self commandItemWithName:XALocalizeString("Join Channel") command:"join %s" target:chan session:sess]];
 	}
 	return menu;
 }

@@ -27,7 +27,7 @@ extern "C" {
 
 - (id) init
 {
-    [super initWithList:&usermenu_list fileName:@"usermenu.conf" title:@"User Menus"];
+    [super initWithList:&usermenu_list fileName:@"usermenu.conf" title:NSLocalizedStringFromTable(@"User Menus", @"xchataqua", @"")];
     return self;
 }
 

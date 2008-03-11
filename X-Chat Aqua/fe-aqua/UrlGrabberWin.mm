@@ -81,7 +81,7 @@ static int do_add_url (const void *key, void *cbd)
     [self->url_list setTarget:self];
     [self->url_list setAction:@selector (item_selected:)];
 
-    [url_grabber_view setTitle:@"URL Grabber"];
+    [url_grabber_view setTitle:NSLocalizedStringFromTable(@"URL Grabber", @"xchataqua", @"")];
     [url_grabber_view setTabTitle:@"UrlGrabber"];
     [url_grabber_view setDelegate:self];
     

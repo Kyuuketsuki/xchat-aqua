@@ -26,7 +26,7 @@ extern "C" {
 
 - (id) init
 {
-    [super initWithList:&replace_list fileName:@"replace.conf" title:@"Replace Popup"];
+    [super initWithList:&replace_list fileName:@"replace.conf" title:NSLocalizedStringFromTable(@"Replace Popup", @"xchat", @"")];
     return self;
 }
 

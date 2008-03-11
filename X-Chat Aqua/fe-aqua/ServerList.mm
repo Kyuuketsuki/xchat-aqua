@@ -22,6 +22,8 @@ extern "C" {
 #include "../common/network.h"
 #include "../common/servlist.h"
 #include "../common/cfgfiles.h"
+	
+const char * XALocalizeString(const char *);
 }
 
 #import "AquaChat.h"
@@ -800,7 +802,7 @@ static ServerList *instance;
 
 - (void) do_new_network:(id) sender
 {
-    ircnet *net = servlist_net_add ("New Network", "", false);
+    ircnet *net = servlist_net_add ((char*)XALocalizeString("New Network"), "", false);
     servlist_server_add (net, "NewServer");
     [my_nets addObject:[[oneNet alloc] initWithIrcnet:net]];
     [net_list reloadData];
@@ -821,7 +823,7 @@ static ServerList *instance;
     oneNet *net = (oneNet *) [my_nets objectAtIndex:row];
 
     if (![SGAlert confirmWithString:[NSString stringWithFormat:
-		@"Really remove network \"%@\" and all its servers?", net->name]])
+		NSLocalizedStringFromTable(@"Really remove network \"%@\" and all its servers?", @"xchataqua", @""), net->name]])
 		return;
     
     servlist_net_remove (net->net);
