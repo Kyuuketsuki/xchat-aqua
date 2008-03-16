@@ -376,11 +376,15 @@ static NSWindow *make_window_for_view (Class nswindow, NSView *view, NSPoint *wh
     
     NSArray *windows = [NSApp windows];
     int win_num = [windows indexOfObject:win];
+	int try_count = [windows count];
     
     do
     {
         win_num = (win_num + direction + [windows count]) % [windows count];
         win = [windows objectAtIndex:win_num];
+		// all windows minimized
+		if(try_count-- == 0)
+			return;
     }
     while (![win isVisible]);
     
