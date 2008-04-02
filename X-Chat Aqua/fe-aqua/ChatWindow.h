@@ -41,6 +41,10 @@
     NSButton	*b_button;
     NSButton	*l_button;
     NSButton	*k_button;
+	NSButton	*C_button;
+	NSButton	*N_button;
+	NSButton	*u_button;
+	
     NSTextField	*limit_text;
     NSTextField	*key_text;
 

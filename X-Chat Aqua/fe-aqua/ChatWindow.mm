@@ -576,6 +576,9 @@ static NSImage *empty_image;
     b_button = NULL;
     l_button = NULL;
     k_button = NULL;
+	C_button = NULL;
+	N_button = NULL;
+	u_button = NULL;
     limit_text = NULL;
     key_text = NULL;
 }
@@ -664,11 +667,16 @@ static NSImage *empty_image;
     i_button = [self make_mode_button:'i' selector:@selector (do_flag_button:)];
     p_button = [self make_mode_button:'p' selector:@selector (do_flag_button:)];
     m_button = [self make_mode_button:'m' selector:@selector (do_flag_button:)];
+	C_button = [self make_mode_button:'C' selector:@selector (do_flag_button:)];
+	N_button = [self make_mode_button:'N' selector:@selector (do_flag_button:)];
+	u_button = [self make_mode_button:'u' selector:@selector (do_flag_button:)];
     b_button = [self make_mode_button:'b' selector:@selector (do_b_button:)];
     l_button = [self make_mode_button:'l' selector:@selector (do_l_button:)];
     limit_text = [self make_mode_text:@selector (do_limit_text:)];
     k_button = [self make_mode_button:'k' selector:@selector (do_k_button:)];
-    key_text = [self make_mode_text:@selector (do_key_text:)];
+
+    
+	 key_text = [self make_mode_text:@selector (do_key_text:)];
 	
 	[top_box sizeToFit];
 }
@@ -1146,6 +1154,8 @@ static NSImage *empty_image;
     set_k_flag (sess, [sender state] == NSOnState, (char *) [[key_text stringValue] UTF8String]);
 }
 
+
+
 - (void) do_b_button:(id) sender
 {
     // TBD
@@ -1191,6 +1201,9 @@ static NSImage *empty_image;
         case 'b': b = b_button; break;
         case 'l': b = l_button; break;
         case 'k': b = k_button; break;
+		case 'C': b = C_button; break;
+		case 'N': b = N_button; break;
+		case 'u': b = u_button; break;
         default: return;
     }
    
@@ -1244,6 +1257,9 @@ static NSImage *empty_image;
     [b_button setEnabled:state];
     [l_button setEnabled:state];
     [k_button setEnabled:state];
+	[C_button setEnabled:state];
+	[N_button setEnabled:state];
+	[u_button setEnabled:state];
     [limit_text setEnabled:state];
     [key_text setEnabled:state];
     [topic_text setEditable:state];
