@@ -92,7 +92,7 @@ void *xchat_realloc (char *old, int len, char *file, int line);
 #endif
 #if !defined(_)
 #  define N_(String) (String)
-#  define _(x) XALocalizeString(x)
+#  define _(x) (char*)XALocalizeString(x)
 #endif
 
 struct nbexec

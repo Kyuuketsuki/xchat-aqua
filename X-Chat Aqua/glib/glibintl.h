@@ -20,7 +20,7 @@ gchar *_glib_gettext (const gchar *str) G_GNUC_FORMAT (1);
 #else /* NLS is disabled */
 #ifdef FE_AQUA
 const char * XALocalizeString(const char *);
-#define _(String) XALocalizeString((String))
+#define _(String) (char*)XALocalizeString((String))
 #define N_(String) XALocalizeString(String)
 #define textdomain(String) XALocalizeString(String)
 #define gettext(String) XALocalizeString(String)

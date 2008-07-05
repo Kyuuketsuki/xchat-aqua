@@ -11,62 +11,8 @@
 		0F0BFA530CFE443000B71E4D /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F0BF9B30CFE2CE800B71E4D /* Growl.framework */; };
 		0F3062070D8472A80084F2CA /* Info devel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3062060D8472A80084F2CA /* Info devel.plist */; };
 		0F3062540D84958E0084F2CA /* xchat.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F3062530D84958E0084F2CA /* xchat.strings */; };
-		0F8EA34A0CFAA3F2001AE9AE /* cfgfiles.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3170CFAA3F2001AE9AE /* cfgfiles.c */; };
-		0F8EA34B0CFAA3F2001AE9AE /* ctcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3190CFAA3F2001AE9AE /* ctcp.c */; };
-		0F8EA34C0CFAA3F2001AE9AE /* dcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA31B0CFAA3F2001AE9AE /* dcc.c */; };
-		0F8EA34D0CFAA3F2001AE9AE /* history.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA31E0CFAA3F2001AE9AE /* history.c */; };
-		0F8EA34E0CFAA3F2001AE9AE /* ignore.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3200CFAA3F2001AE9AE /* ignore.c */; };
-		0F8EA34F0CFAA3F2001AE9AE /* inbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3220CFAA3F2001AE9AE /* inbound.c */; };
-		0F8EA3500CFAA3F2001AE9AE /* modes.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3240CFAA3F2001AE9AE /* modes.c */; };
-		0F8EA3510CFAA3F2001AE9AE /* msproxy.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3260CFAA3F2001AE9AE /* msproxy.c */; };
-		0F8EA3520CFAA3F2001AE9AE /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3280CFAA3F2001AE9AE /* network.c */; };
-		0F8EA3530CFAA3F2001AE9AE /* notify.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32A0CFAA3F2001AE9AE /* notify.c */; };
-		0F8EA3540CFAA3F2001AE9AE /* outbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32C0CFAA3F2001AE9AE /* outbound.c */; };
-		0F8EA3550CFAA3F2001AE9AE /* plugin-timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32E0CFAA3F2001AE9AE /* plugin-timer.c */; };
-		0F8EA3560CFAA3F2001AE9AE /* plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3300CFAA3F2001AE9AE /* plugin.c */; };
-		0F8EA3570CFAA3F2001AE9AE /* proto-irc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3320CFAA3F2001AE9AE /* proto-irc.c */; };
-		0F8EA3580CFAA3F2001AE9AE /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3340CFAA3F2001AE9AE /* server.c */; };
-		0F8EA3590CFAA3F2001AE9AE /* servlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3360CFAA3F2001AE9AE /* servlist.c */; };
-		0F8EA35A0CFAA3F2001AE9AE /* ssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3380CFAA3F2001AE9AE /* ssl.c */; };
-		0F8EA35B0CFAA3F2001AE9AE /* text.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA33A0CFAA3F2001AE9AE /* text.c */; };
-		0F8EA35C0CFAA3F2001AE9AE /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA33E0CFAA3F2001AE9AE /* tree.c */; };
-		0F8EA35D0CFAA3F2001AE9AE /* url.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3400CFAA3F2001AE9AE /* url.c */; };
-		0F8EA35E0CFAA3F2001AE9AE /* userlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3420CFAA3F2001AE9AE /* userlist.c */; };
-		0F8EA35F0CFAA3F2001AE9AE /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3440CFAA3F2001AE9AE /* util.c */; };
-		0F8EA3600CFAA3F2001AE9AE /* xchat.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3470CFAA3F2001AE9AE /* xchat.c */; };
 		0F8EA3670CFAA49B001AE9AE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA3660CFAA49B001AE9AE /* Info.plist */; };
-		0F8EA3CF0CFAF7E2001AE9AE /* fe-aqua.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.mm */; };
-		0F8EA3E90CFB020F001AE9AE /* gslist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3E80CFB020F001AE9AE /* gslist.c */; };
-		0F8EA3EE0CFB029F001AE9AE /* gstrfuncs.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3ED0CFB029F001AE9AE /* gstrfuncs.c */; };
-		0F8EA3F40CFB03C9001AE9AE /* gconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3F30CFB03C9001AE9AE /* gconvert.c */; };
-		0F8EA3FB0CFB05E8001AE9AE /* gmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3FA0CFB05E8001AE9AE /* gmem.c */; };
-		0F8EA3FE0CFB069B001AE9AE /* gutf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3FD0CFB069B001AE9AE /* gutf8.c */; };
-		0F8EA4030CFB0767001AE9AE /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4020CFB0767001AE9AE /* ghash.c */; };
-		0F8EA4070CFB0877001AE9AE /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4060CFB0877001AE9AE /* gstring.c */; };
-		0F8EA40A0CFB08F6001AE9AE /* gerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4090CFB08F6001AE9AE /* gerror.c */; };
-		0F8EA40D0CFB0968001AE9AE /* gslice.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA40C0CFB0968001AE9AE /* gslice.c */; };
-		0F8EA4120CFB0B3A001AE9AE /* gthread.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4110CFB0B3A001AE9AE /* gthread.c */; };
-		0F8EA4480CFB0C1C001AE9AE /* garray.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4470CFB0C1C001AE9AE /* garray.c */; };
-		0F8EA4A70CFB0C66001AE9AE /* gqsort.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4A40CFB0C66001AE9AE /* gqsort.c */; };
-		0F8EA4AA0CFB0C99001AE9AE /* gatomic.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4A90CFB0C99001AE9AE /* gatomic.c */; };
-		0F8EA4AD0CFB0D17001AE9AE /* glist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4AC0CFB0D17001AE9AE /* glist.c */; };
-		0F8EA4B40CFB0D7D001AE9AE /* gutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4B00CFB0D7D001AE9AE /* gutils.c */; };
-		0F8EA4CF0CFB1023001AE9AE /* gfileutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4CD0CFB1023001AE9AE /* gfileutils.c */; };
-		0F8EA4DB0CFB11DC001AE9AE /* gmessages.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4DA0CFB11DC001AE9AE /* gmessages.c */; };
-		0F8EA4DF0CFB12EC001AE9AE /* gmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4DE0CFB12EC001AE9AE /* gmain.c */; };
-		0F8EA4EE0CFB14C4001AE9AE /* gdataset.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4EC0CFB14C4001AE9AE /* gdataset.c */; };
-		0F8EA4F40CFB1652001AE9AE /* printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4F20CFB1652001AE9AE /* printf.c */; };
-		0F8EA50C0CFB1C04001AE9AE /* gstdio.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA50A0CFB1C04001AE9AE /* gstdio.c */; };
-		0F8EA50F0CFB1D0F001AE9AE /* vasnprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA50E0CFB1D0F001AE9AE /* vasnprintf.c */; };
-		0F8EA5270CFB1E3D001AE9AE /* printf-args.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5230CFB1E3D001AE9AE /* printf-args.c */; };
-		0F8EA5280CFB1E3D001AE9AE /* printf-parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5250CFB1E3D001AE9AE /* printf-parse.c */; };
-		0F8EA52E0CFB1F4C001AE9AE /* grand.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA52D0CFB1F4C001AE9AE /* grand.c */; };
-		0F8EA5320CFB2025001AE9AE /* gprimes.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5310CFB2025001AE9AE /* gprimes.c */; };
-		0F8EA5350CFB22CB001AE9AE /* guniprop.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5340CFB22CB001AE9AE /* guniprop.c */; };
-		0F8EA53C0CFB23F9001AE9AE /* gunidecomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA53B0CFB23F9001AE9AE /* gunidecomp.c */; };
-		0F8EA5F20CFB24A3001AE9AE /* gprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F10CFB24A3001AE9AE /* gprintf.c */; };
 		0F8EA5F60CFB24D4001AE9AE /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8EA5F50CFB24D4001AE9AE /* libiconv.2.dylib */; };
-		0F8EA5F90CFB2500001AE9AE /* AquaChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F80CFB2500001AE9AE /* AquaChat.mm */; };
 		0F8EA62E0CFB2E0A001AE9AE /* AsciiWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6250CFB2E0A001AE9AE /* AsciiWin.mm */; };
 		0F8EA62F0CFB2E0A001AE9AE /* BanListWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6270CFB2E0A001AE9AE /* BanListWin.mm */; };
 		0F8EA6300CFB2E0A001AE9AE /* ChannelListWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6290CFB2E0A001AE9AE /* ChannelListWin.mm */; };
@@ -139,7 +85,6 @@
 		0F8EA7200CFB3941001AE9AE /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA7180CFB3941001AE9AE /* SRRecorderCell.m */; };
 		0F8EA7210CFB3941001AE9AE /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA71A0CFB3941001AE9AE /* SRRecorderControl.m */; };
 		0F8EA7220CFB3941001AE9AE /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA71C0CFB3941001AE9AE /* SRValidator.m */; };
-		0F8EA72F0CFB3D1A001AE9AE /* localcharset.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA72E0CFB3D1A001AE9AE /* localcharset.c */; };
 		0F8EA7370CFB6B07001AE9AE /* libssl.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8EA7360CFB6B07001AE9AE /* libssl.0.9.7.dylib */; };
 		0F8EA7390CFB6B21001AE9AE /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8EA7380CFB6B21001AE9AE /* libcrypto.0.9.7.dylib */; };
 		0F8EA7430CFB6B7A001AE9AE /* 0_off.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA73C0CFB6B7A001AE9AE /* 0_off.tiff */; };
@@ -192,8 +137,96 @@
 		0F8EA7A20CFB6CF9001AE9AE /* xchat.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7980CFB6CF9001AE9AE /* xchat.tiff */; };
 		0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */; };
 		0F8EA7C90CFB7094001AE9AE /* SGRowColView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA7C80CFB7094001AE9AE /* SGRowColView.mm */; };
+		0FC8F3E90DEEDA0C00504F31 /* python.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC8F3E80DEEDA0C00504F31 /* python.c */; };
+		0FC8F3F60DEEDAB300504F31 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; };
+		0FC8F4070DEEE05500504F31 /* localcharset.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA72E0CFB3D1A001AE9AE /* localcharset.c */; };
+		0FC8F4080DEEE07600504F31 /* printf-args.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5230CFB1E3D001AE9AE /* printf-args.c */; };
+		0FC8F4090DEEE07600504F31 /* printf-parse.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5250CFB1E3D001AE9AE /* printf-parse.c */; };
+		0FC8F40A0DEEE07600504F31 /* vasnprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA50E0CFB1D0F001AE9AE /* vasnprintf.c */; };
+		0FC8F40B0DEEE07600504F31 /* printf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4F20CFB1652001AE9AE /* printf.c */; };
+		0FC8F40C0DEEE07600504F31 /* gdataset.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4EC0CFB14C4001AE9AE /* gdataset.c */; };
+		0FC8F40D0DEEE07600504F31 /* gmain.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4DE0CFB12EC001AE9AE /* gmain.c */; };
+		0FC8F40E0DEEE07600504F31 /* gmessages.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4DA0CFB11DC001AE9AE /* gmessages.c */; };
+		0FC8F40F0DEEE07600504F31 /* gfileutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4CD0CFB1023001AE9AE /* gfileutils.c */; };
+		0FC8F4100DEEE07E00504F31 /* gunidecomp.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA53B0CFB23F9001AE9AE /* gunidecomp.c */; };
+		0FC8F4110DEEE07E00504F31 /* guniprop.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5340CFB22CB001AE9AE /* guniprop.c */; };
+		0FC8F4120DEEE07E00504F31 /* gprimes.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5310CFB2025001AE9AE /* gprimes.c */; };
+		0FC8F4130DEEE07E00504F31 /* grand.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA52D0CFB1F4C001AE9AE /* grand.c */; };
+		0FC8F4140DEEE07E00504F31 /* gstdio.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA50A0CFB1C04001AE9AE /* gstdio.c */; };
+		0FC8F4150DEEE08900504F31 /* gprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F10CFB24A3001AE9AE /* gprintf.c */; };
+		0FC8F4320DEEE0A200504F31 /* gqsort.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4A40CFB0C66001AE9AE /* gqsort.c */; };
+		0FC8F4330DEEE0AB00504F31 /* garray.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4470CFB0C1C001AE9AE /* garray.c */; };
+		0FC8F4340DEEE0AB00504F31 /* gthread.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4110CFB0B3A001AE9AE /* gthread.c */; };
+		0FC8F4350DEEE0AB00504F31 /* gslice.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA40C0CFB0968001AE9AE /* gslice.c */; };
+		0FC8F4360DEEE0AB00504F31 /* gerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4090CFB08F6001AE9AE /* gerror.c */; };
+		0FC8F4370DEEE0AB00504F31 /* gstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4060CFB0877001AE9AE /* gstring.c */; };
+		0FC8F4380DEEE0AB00504F31 /* ghash.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4020CFB0767001AE9AE /* ghash.c */; };
+		0FC8F4390DEEE0AB00504F31 /* gutf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3FD0CFB069B001AE9AE /* gutf8.c */; };
+		0FC8F43A0DEEE0AB00504F31 /* gmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3FA0CFB05E8001AE9AE /* gmem.c */; };
+		0FC8F43B0DEEE0AB00504F31 /* gconvert.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3F30CFB03C9001AE9AE /* gconvert.c */; };
+		0FC8F43C0DEEE0AB00504F31 /* gstrfuncs.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3ED0CFB029F001AE9AE /* gstrfuncs.c */; };
+		0FC8F43D0DEEE0B500504F31 /* gslist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3E80CFB020F001AE9AE /* gslist.c */; };
+		0FC8F4400DEEE0E400504F31 /* libglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4020DEEE00000504F31 /* libglib.a */; };
+		0FC8F4420DEEE0FA00504F31 /* libglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4020DEEE00000504F31 /* libglib.a */; };
+		0FC8F4B20DEEE55000504F31 /* msproxy.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3260CFAA3F2001AE9AE /* msproxy.c */; };
+		0FC8F4B30DEEE55000504F31 /* history.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA31E0CFAA3F2001AE9AE /* history.c */; };
+		0FC8F4B40DEEE55000504F31 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA33E0CFAA3F2001AE9AE /* tree.c */; };
+		0FC8F4B50DEEE55000504F31 /* network.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3280CFAA3F2001AE9AE /* network.c */; };
+		0FC8F4B60DEEE55000504F31 /* plugin-timer.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32E0CFAA3F2001AE9AE /* plugin-timer.c */; };
+		0FC8F4B70DEEE55000504F31 /* url.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3400CFAA3F2001AE9AE /* url.c */; };
+		0FC8F4B80DEEE55000504F31 /* ctcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3190CFAA3F2001AE9AE /* ctcp.c */; };
+		0FC8F4B90DEEE55000504F31 /* userlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3420CFAA3F2001AE9AE /* userlist.c */; };
+		0FC8F4BA0DEEE55000504F31 /* ignore.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3200CFAA3F2001AE9AE /* ignore.c */; };
+		0FC8F4BB0DEEE55000504F31 /* notify.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32A0CFAA3F2001AE9AE /* notify.c */; };
+		0FC8F4BC0DEEE55000504F31 /* modes.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3240CFAA3F2001AE9AE /* modes.c */; };
+		0FC8F4BD0DEEE55000504F31 /* ssl.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3380CFAA3F2001AE9AE /* ssl.c */; };
+		0FC8F4BE0DEEE55000504F31 /* xchat.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3470CFAA3F2001AE9AE /* xchat.c */; };
+		0FC8F4BF0DEEE55000504F31 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3440CFAA3F2001AE9AE /* util.c */; };
+		0FC8F4C00DEEE55000504F31 /* servlist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3360CFAA3F2001AE9AE /* servlist.c */; };
+		0FC8F4C10DEEE55000504F31 /* proto-irc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3320CFAA3F2001AE9AE /* proto-irc.c */; };
+		0FC8F4C20DEEE55000504F31 /* cfgfiles.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3170CFAA3F2001AE9AE /* cfgfiles.c */; };
+		0FC8F4C30DEEE55000504F31 /* inbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3220CFAA3F2001AE9AE /* inbound.c */; };
+		0FC8F4C40DEEE55000504F31 /* plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3300CFAA3F2001AE9AE /* plugin.c */; };
+		0FC8F4C50DEEE55000504F31 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3340CFAA3F2001AE9AE /* server.c */; };
+		0FC8F4C60DEEE55000504F31 /* text.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA33A0CFAA3F2001AE9AE /* text.c */; };
+		0FC8F4C70DEEE55000504F31 /* dcc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA31B0CFAA3F2001AE9AE /* dcc.c */; };
+		0FC8F4C80DEEE55000504F31 /* outbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA32C0CFAA3F2001AE9AE /* outbound.c */; };
+		0FC8F4E50DEEE6F200504F31 /* xalocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FC8F4E30DEEE6F200504F31 /* xalocalization.h */; };
+		0FC8F4E60DEEE6F200504F31 /* xalocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC8F4E40DEEE6F200504F31 /* xalocalization.m */; };
+		0FC8F5180DEEE9EA00504F31 /* gutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4B00CFB0D7D001AE9AE /* gutils.c */; };
+		0FC8F5190DEEE9EE00504F31 /* glist.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4AC0CFB0D17001AE9AE /* glist.c */; };
+		0FC8F51A0DEEE9F200504F31 /* gatomic.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA4A90CFB0C99001AE9AE /* gatomic.c */; };
+		0FC8F5C40DEEEA3E00504F31 /* libxchat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4AE0DEEE51700504F31 /* libxchat.a */; };
+		0FC8F6AF0DEEF3AC00504F31 /* AquaChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F80CFB2500001AE9AE /* AquaChat.mm */; };
+		0FC8F6E00DEEF54800504F31 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */; };
+		0FC8F6ED0DEEF64200504F31 /* fe-aqua.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.mm */; };
+		0FC8F6FC0DEEF84C00504F31 /* Info devel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0FC8F4440DEEE10700504F31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FC8F4010DEEE00000504F31;
+			remoteInfo = glib;
+		};
+		0FC8F4460DEEE11100504F31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FC8F4010DEEE00000504F31;
+			remoteInfo = glib;
+		};
+		0FC8F5C20DEEEA3B00504F31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FC8F4AD0DEEE51700504F31;
+			remoteInfo = xchat;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0F8EA7C40CFB6EC9001AE9AE /* CopyFiles */ = {
@@ -562,6 +595,18 @@
 		0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = yellow.tiff; path = "fe-aqua/yellow.tiff"; sourceTree = "<group>"; };
 		0F8EA7C70CFB7094001AE9AE /* SGRowColView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGRowColView.h; path = "fe-aqua/SGRowColView.h"; sourceTree = "<group>"; };
 		0F8EA7C80CFB7094001AE9AE /* SGRowColView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SGRowColView.mm; path = "fe-aqua/SGRowColView.mm"; sourceTree = "<group>"; };
+		0FC8F3DE0DEED9AB00504F31 /* python-leopard.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "python-leopard.so"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FC8F3DF0DEED9AB00504F31 /* Info devel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info devel.plist"; sourceTree = "<group>"; };
+		0FC8F3E80DEEDA0C00504F31 /* python.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = python.c; path = plugins/python/python.c; sourceTree = "<group>"; };
+		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		0FC8F4020DEEE00000504F31 /* libglib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libglib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FC8F4860DEEE3EE00504F31 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0FC8F4AE0DEEE51700504F31 /* libxchat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libxchat.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FC8F4E30DEEE6F200504F31 /* xalocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xalocalization.h; path = glib/xalocalization.h; sourceTree = "<group>"; };
+		0FC8F4E40DEEE6F200504F31 /* xalocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = xalocalization.m; path = glib/xalocalization.m; sourceTree = "<group>"; };
+		0FC8F6DA0DEEF50100504F31 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info devel.plist"; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -570,6 +615,30 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0FC8F3DC0DEED9AB00504F31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F3F60DEEDAB300504F31 /* Python.framework in Frameworks */,
+				0FC8F4420DEEE0FA00504F31 /* libglib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F4000DEEE00000504F31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F6E00DEEF54800504F31 /* libiconv.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F4AC0DEEE51700504F31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,6 +649,8 @@
 				0F8EA7370CFB6B07001AE9AE /* libssl.0.9.7.dylib in Frameworks */,
 				0F8EA7390CFB6B21001AE9AE /* libcrypto.0.9.7.dylib in Frameworks */,
 				0F0BF9B40CFE2CE900B71E4D /* Growl.framework in Frameworks */,
+				0FC8F4400DEEE0E400504F31 /* libglib.a in Frameworks */,
+				0FC8F5C40DEEEA3E00504F31 /* libxchat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +792,8 @@
 				0F8EA3AE0CFAF437001AE9AE /* glib */,
 				0F8EA3C00CFAF437001AE9AE /* glib.h */,
 				0F8EA38E0CFAB427001AE9AE /* glibconfig.h */,
+				0FC8F4E30DEEE6F200504F31 /* xalocalization.h */,
+				0FC8F4E40DEEE6F200504F31 /* xalocalization.m */,
 			);
 			name = glib;
 			sourceTree = "<group>";
@@ -993,6 +1066,14 @@
 			name = libcharset;
 			sourceTree = "<group>";
 		};
+		0FC8F3D10DEEC33D00504F31 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				0FC8F3E80DEEDA0C00504F31 /* python.c */,
+			);
+			name = plugins;
+			sourceTree = "<group>";
+		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,6 +1101,9 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* X-Chat Aqua.app */,
+				0FC8F3DE0DEED9AB00504F31 /* python-leopard.so */,
+				0FC8F4020DEEE00000504F31 /* libglib.a */,
+				0FC8F4AE0DEEE51700504F31 /* libxchat.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1027,12 +1111,19 @@
 		29B97314FDCFA39411CA2CEA /* X-Chat Aqua */ = {
 			isa = PBXGroup;
 			children = (
+				0FC8F3D10DEEC33D00504F31 /* plugins */,
 				0F8EA38D0CFAB411001AE9AE /* glib */,
 				0F8EA3640CFAA429001AE9AE /* fe-aqua */,
 				0F8EA3160CFAA342001AE9AE /* xchat common */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				0F3062530D84958E0084F2CA /* xchat.strings */,
+				0FC8F3DF0DEED9AB00504F31 /* Info devel.plist */,
+				0FC8F3F50DEEDAB300504F31 /* Python.framework */,
+				0FC8F4860DEEE3EE00504F31 /* Cocoa.framework */,
+				0FC8F6DA0DEEF50100504F31 /* AppKit.framework */,
+				0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */,
+				0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */,
 			);
 			name = "X-Chat Aqua";
 			sourceTree = "<group>";
@@ -1048,7 +1139,84 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		0FC8F3DA0DEED9AB00504F31 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F3FE0DEEE00000504F31 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F4E50DEEE6F200504F31 /* xalocalization.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F4AA0DEEE51700504F31 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		0FC8F3DD0DEED9AB00504F31 /* python-leopard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FC8F3E20DEED9AC00504F31 /* Build configuration list for PBXNativeTarget "python-leopard" */;
+			buildPhases = (
+				0FC8F3DA0DEED9AB00504F31 /* Headers */,
+				0FC8F3DB0DEED9AB00504F31 /* Sources */,
+				0FC8F3DC0DEED9AB00504F31 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FC8F4450DEEE10700504F31 /* PBXTargetDependency */,
+			);
+			name = "python-leopard";
+			productName = "python-leopard";
+			productReference = 0FC8F3DE0DEED9AB00504F31 /* python-leopard.so */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		0FC8F4010DEEE00000504F31 /* glib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FC8F4050DEEE01F00504F31 /* Build configuration list for PBXNativeTarget "glib" */;
+			buildPhases = (
+				0FC8F3FE0DEEE00000504F31 /* Headers */,
+				0FC8F3FF0DEEE00000504F31 /* Sources */,
+				0FC8F4000DEEE00000504F31 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = glib;
+			productName = glib;
+			productReference = 0FC8F4020DEEE00000504F31 /* libglib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0FC8F4AD0DEEE51700504F31 /* xchat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FC8F4B10DEEE53600504F31 /* Build configuration list for PBXNativeTarget "xchat" */;
+			buildPhases = (
+				0FC8F4AA0DEEE51700504F31 /* Headers */,
+				0FC8F4AB0DEEE51700504F31 /* Sources */,
+				0FC8F4AC0DEEE51700504F31 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = xchat;
+			productName = xchat;
+			productReference = 0FC8F4AE0DEEE51700504F31 /* libxchat.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		8D1107260486CEB800E47090 /* X-Chat Aqua */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "X-Chat Aqua" */;
@@ -1061,6 +1229,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				0FC8F4470DEEE11100504F31 /* PBXTargetDependency */,
+				0FC8F5C30DEEEA3B00504F31 /* PBXTargetDependency */,
 			);
 			name = "X-Chat Aqua";
 			productInstallPath = "$(HOME)/Applications";
@@ -1114,6 +1284,9 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* X-Chat Aqua */,
+				0FC8F3DD0DEED9AB00504F31 /* python-leopard */,
+				0FC8F4010DEEE00000504F31 /* glib */,
+				0FC8F4AD0DEEE51700504F31 /* xchat */,
 			);
 		};
 /* End PBXProject section */
@@ -1175,70 +1348,93 @@
 				0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */,
 				0F3062070D8472A80084F2CA /* Info devel.plist in Resources */,
 				0F3062540D84958E0084F2CA /* xchat.strings in Resources */,
+				0FC8F6FC0DEEF84C00504F31 /* Info devel.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0FC8F3DB0DEED9AB00504F31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F3E90DEEDA0C00504F31 /* python.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F3FF0DEEE00000504F31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F4070DEEE05500504F31 /* localcharset.c in Sources */,
+				0FC8F4080DEEE07600504F31 /* printf-args.c in Sources */,
+				0FC8F4090DEEE07600504F31 /* printf-parse.c in Sources */,
+				0FC8F40A0DEEE07600504F31 /* vasnprintf.c in Sources */,
+				0FC8F40B0DEEE07600504F31 /* printf.c in Sources */,
+				0FC8F40C0DEEE07600504F31 /* gdataset.c in Sources */,
+				0FC8F40D0DEEE07600504F31 /* gmain.c in Sources */,
+				0FC8F40E0DEEE07600504F31 /* gmessages.c in Sources */,
+				0FC8F40F0DEEE07600504F31 /* gfileutils.c in Sources */,
+				0FC8F4100DEEE07E00504F31 /* gunidecomp.c in Sources */,
+				0FC8F4110DEEE07E00504F31 /* guniprop.c in Sources */,
+				0FC8F4120DEEE07E00504F31 /* gprimes.c in Sources */,
+				0FC8F4130DEEE07E00504F31 /* grand.c in Sources */,
+				0FC8F4140DEEE07E00504F31 /* gstdio.c in Sources */,
+				0FC8F4150DEEE08900504F31 /* gprintf.c in Sources */,
+				0FC8F4320DEEE0A200504F31 /* gqsort.c in Sources */,
+				0FC8F4330DEEE0AB00504F31 /* garray.c in Sources */,
+				0FC8F4340DEEE0AB00504F31 /* gthread.c in Sources */,
+				0FC8F4350DEEE0AB00504F31 /* gslice.c in Sources */,
+				0FC8F4360DEEE0AB00504F31 /* gerror.c in Sources */,
+				0FC8F4370DEEE0AB00504F31 /* gstring.c in Sources */,
+				0FC8F4380DEEE0AB00504F31 /* ghash.c in Sources */,
+				0FC8F4390DEEE0AB00504F31 /* gutf8.c in Sources */,
+				0FC8F43A0DEEE0AB00504F31 /* gmem.c in Sources */,
+				0FC8F43B0DEEE0AB00504F31 /* gconvert.c in Sources */,
+				0FC8F43C0DEEE0AB00504F31 /* gstrfuncs.c in Sources */,
+				0FC8F43D0DEEE0B500504F31 /* gslist.c in Sources */,
+				0FC8F4E60DEEE6F200504F31 /* xalocalization.m in Sources */,
+				0FC8F5180DEEE9EA00504F31 /* gutils.c in Sources */,
+				0FC8F5190DEEE9EE00504F31 /* glist.c in Sources */,
+				0FC8F51A0DEEE9F200504F31 /* gatomic.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FC8F4AB0DEEE51700504F31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FC8F4B20DEEE55000504F31 /* msproxy.c in Sources */,
+				0FC8F4B30DEEE55000504F31 /* history.c in Sources */,
+				0FC8F4B40DEEE55000504F31 /* tree.c in Sources */,
+				0FC8F4B50DEEE55000504F31 /* network.c in Sources */,
+				0FC8F4B60DEEE55000504F31 /* plugin-timer.c in Sources */,
+				0FC8F4B70DEEE55000504F31 /* url.c in Sources */,
+				0FC8F4B80DEEE55000504F31 /* ctcp.c in Sources */,
+				0FC8F4B90DEEE55000504F31 /* userlist.c in Sources */,
+				0FC8F4BA0DEEE55000504F31 /* ignore.c in Sources */,
+				0FC8F4BB0DEEE55000504F31 /* notify.c in Sources */,
+				0FC8F4BC0DEEE55000504F31 /* modes.c in Sources */,
+				0FC8F4BD0DEEE55000504F31 /* ssl.c in Sources */,
+				0FC8F4BE0DEEE55000504F31 /* xchat.c in Sources */,
+				0FC8F4BF0DEEE55000504F31 /* util.c in Sources */,
+				0FC8F4C00DEEE55000504F31 /* servlist.c in Sources */,
+				0FC8F4C10DEEE55000504F31 /* proto-irc.c in Sources */,
+				0FC8F4C20DEEE55000504F31 /* cfgfiles.c in Sources */,
+				0FC8F4C30DEEE55000504F31 /* inbound.c in Sources */,
+				0FC8F4C40DEEE55000504F31 /* plugin.c in Sources */,
+				0FC8F4C50DEEE55000504F31 /* server.c in Sources */,
+				0FC8F4C60DEEE55000504F31 /* text.c in Sources */,
+				0FC8F4C70DEEE55000504F31 /* dcc.c in Sources */,
+				0FC8F4C80DEEE55000504F31 /* outbound.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8EA34A0CFAA3F2001AE9AE /* cfgfiles.c in Sources */,
-				0F8EA34B0CFAA3F2001AE9AE /* ctcp.c in Sources */,
-				0F8EA34C0CFAA3F2001AE9AE /* dcc.c in Sources */,
-				0F8EA34D0CFAA3F2001AE9AE /* history.c in Sources */,
-				0F8EA34E0CFAA3F2001AE9AE /* ignore.c in Sources */,
-				0F8EA34F0CFAA3F2001AE9AE /* inbound.c in Sources */,
-				0F8EA3500CFAA3F2001AE9AE /* modes.c in Sources */,
-				0F8EA3510CFAA3F2001AE9AE /* msproxy.c in Sources */,
-				0F8EA3520CFAA3F2001AE9AE /* network.c in Sources */,
-				0F8EA3530CFAA3F2001AE9AE /* notify.c in Sources */,
-				0F8EA3540CFAA3F2001AE9AE /* outbound.c in Sources */,
-				0F8EA3550CFAA3F2001AE9AE /* plugin-timer.c in Sources */,
-				0F8EA3560CFAA3F2001AE9AE /* plugin.c in Sources */,
-				0F8EA3570CFAA3F2001AE9AE /* proto-irc.c in Sources */,
-				0F8EA3580CFAA3F2001AE9AE /* server.c in Sources */,
-				0F8EA3590CFAA3F2001AE9AE /* servlist.c in Sources */,
-				0F8EA35A0CFAA3F2001AE9AE /* ssl.c in Sources */,
-				0F8EA35B0CFAA3F2001AE9AE /* text.c in Sources */,
-				0F8EA35C0CFAA3F2001AE9AE /* tree.c in Sources */,
-				0F8EA35D0CFAA3F2001AE9AE /* url.c in Sources */,
-				0F8EA35E0CFAA3F2001AE9AE /* userlist.c in Sources */,
-				0F8EA35F0CFAA3F2001AE9AE /* util.c in Sources */,
-				0F8EA3600CFAA3F2001AE9AE /* xchat.c in Sources */,
-				0F8EA3CF0CFAF7E2001AE9AE /* fe-aqua.mm in Sources */,
-				0F8EA3E90CFB020F001AE9AE /* gslist.c in Sources */,
-				0F8EA3EE0CFB029F001AE9AE /* gstrfuncs.c in Sources */,
-				0F8EA3F40CFB03C9001AE9AE /* gconvert.c in Sources */,
-				0F8EA3FB0CFB05E8001AE9AE /* gmem.c in Sources */,
-				0F8EA3FE0CFB069B001AE9AE /* gutf8.c in Sources */,
-				0F8EA4030CFB0767001AE9AE /* ghash.c in Sources */,
-				0F8EA4070CFB0877001AE9AE /* gstring.c in Sources */,
-				0F8EA40A0CFB08F6001AE9AE /* gerror.c in Sources */,
-				0F8EA40D0CFB0968001AE9AE /* gslice.c in Sources */,
-				0F8EA4120CFB0B3A001AE9AE /* gthread.c in Sources */,
-				0F8EA4480CFB0C1C001AE9AE /* garray.c in Sources */,
-				0F8EA4A70CFB0C66001AE9AE /* gqsort.c in Sources */,
-				0F8EA4AA0CFB0C99001AE9AE /* gatomic.c in Sources */,
-				0F8EA4AD0CFB0D17001AE9AE /* glist.c in Sources */,
-				0F8EA4B40CFB0D7D001AE9AE /* gutils.c in Sources */,
-				0F8EA4CF0CFB1023001AE9AE /* gfileutils.c in Sources */,
-				0F8EA4DB0CFB11DC001AE9AE /* gmessages.c in Sources */,
-				0F8EA4DF0CFB12EC001AE9AE /* gmain.c in Sources */,
-				0F8EA4EE0CFB14C4001AE9AE /* gdataset.c in Sources */,
-				0F8EA4F40CFB1652001AE9AE /* printf.c in Sources */,
-				0F8EA50C0CFB1C04001AE9AE /* gstdio.c in Sources */,
-				0F8EA50F0CFB1D0F001AE9AE /* vasnprintf.c in Sources */,
-				0F8EA5270CFB1E3D001AE9AE /* printf-args.c in Sources */,
-				0F8EA5280CFB1E3D001AE9AE /* printf-parse.c in Sources */,
-				0F8EA52E0CFB1F4C001AE9AE /* grand.c in Sources */,
-				0F8EA5320CFB2025001AE9AE /* gprimes.c in Sources */,
-				0F8EA5350CFB22CB001AE9AE /* guniprop.c in Sources */,
-				0F8EA53C0CFB23F9001AE9AE /* gunidecomp.c in Sources */,
-				0F8EA5F20CFB24A3001AE9AE /* gprintf.c in Sources */,
-				0F8EA5F90CFB2500001AE9AE /* AquaChat.mm in Sources */,
 				0F8EA62E0CFB2E0A001AE9AE /* AsciiWin.mm in Sources */,
 				0F8EA62F0CFB2E0A001AE9AE /* BanListWin.mm in Sources */,
 				0F8EA6300CFB2E0A001AE9AE /* ChannelListWin.mm in Sources */,
@@ -1310,12 +1506,31 @@
 				0F8EA7200CFB3941001AE9AE /* SRRecorderCell.m in Sources */,
 				0F8EA7210CFB3941001AE9AE /* SRRecorderControl.m in Sources */,
 				0F8EA7220CFB3941001AE9AE /* SRValidator.m in Sources */,
-				0F8EA72F0CFB3D1A001AE9AE /* localcharset.c in Sources */,
 				0F8EA7C90CFB7094001AE9AE /* SGRowColView.mm in Sources */,
+				0FC8F6AF0DEEF3AC00504F31 /* AquaChat.mm in Sources */,
+				0FC8F6ED0DEEF64200504F31 /* fe-aqua.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0FC8F4450DEEE10700504F31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FC8F4010DEEE00000504F31 /* glib */;
+			targetProxy = 0FC8F4440DEEE10700504F31 /* PBXContainerItemProxy */;
+		};
+		0FC8F4470DEEE11100504F31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FC8F4010DEEE00000504F31 /* glib */;
+			targetProxy = 0FC8F4460DEEE11100504F31 /* PBXContainerItemProxy */;
+		};
+		0FC8F5C30DEEEA3B00504F31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FC8F4AD0DEEE51700504F31 /* xchat */;
+			targetProxy = 0FC8F5C20DEEEA3B00504F31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0F3062530D84958E0084F2CA /* xchat.strings */ = {
@@ -1378,6 +1593,132 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0FC8F3E00DEED9AC00504F31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_EXTENSION = so;
+				EXECUTABLE_PREFIX = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"XCHAT_AQUA_VERSION=\\\"$(XCHAT_AQUA_VERSION)\\\"",
+					FE_AQUA,
+				);
+				HEADER_SEARCH_PATHS = (
+					/System/Library/Frameworks/Python.framework/Headers,
+					"fe-aqua/Growl.framework/Versions/A/Headers",
+					"fe-aqua/ShortcutRecorder/ShortcutRecorder/Source",
+					"fe-aqua/",
+					.,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "python-leopard";
+			};
+			name = Debug;
+		};
+		0FC8F3E10DEED9AC00504F31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_EXTENSION = so;
+				EXECUTABLE_PREFIX = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"XCHAT_AQUA_VERSION=\\\"$(XCHAT_AQUA_VERSION)\\\"",
+					FE_AQUA,
+				);
+				HEADER_SEARCH_PATHS = (
+					/System/Library/Frameworks/Python.framework/Headers,
+					"fe-aqua/Growl.framework/Versions/A/Headers",
+					"fe-aqua/ShortcutRecorder/ShortcutRecorder/Source",
+					"fe-aqua/",
+					.,
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "python-leopard";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0FC8F4030DEEE00100504F31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = glib;
+			};
+			name = Debug;
+		};
+		0FC8F4040DEEE00100504F31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = glib;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0FC8F4AF0DEEE51700504F31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = xchat;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+			};
+			name = Debug;
+		};
+		0FC8F4B00DEEE51700504F31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PREBINDING = NO;
+				PRODUCT_NAME = xchat;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1394,6 +1735,10 @@
 				GCC_PREFIX_HEADER = "X-Chat Aqua_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+				);
 				PRODUCT_NAME = "X-Chat Aqua";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -1413,6 +1758,10 @@
 				GCC_PREFIX_HEADER = "X-Chat Aqua_Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug\"",
+				);
 				PRODUCT_NAME = "X-Chat Aqua";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1477,6 +1826,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0FC8F3E20DEED9AC00504F31 /* Build configuration list for PBXNativeTarget "python-leopard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FC8F3E00DEED9AC00504F31 /* Debug */,
+				0FC8F3E10DEED9AC00504F31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FC8F4050DEEE01F00504F31 /* Build configuration list for PBXNativeTarget "glib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FC8F4030DEEE00100504F31 /* Debug */,
+				0FC8F4040DEEE00100504F31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FC8F4B10DEEE53600504F31 /* Build configuration list for PBXNativeTarget "xchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FC8F4AF0DEEE51700504F31 /* Debug */,
+				0FC8F4B00DEEE51700504F31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "X-Chat Aqua" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
