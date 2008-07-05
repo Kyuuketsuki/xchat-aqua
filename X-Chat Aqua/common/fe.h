@@ -48,7 +48,7 @@ void fe_message (char *msg, int flags);
 int fe_input_add (int sok, int flags, void *func, void *data);
 void fe_input_remove (int tag);
 void fe_idle_add (void *func, void *data);
-void fe_set_topic (struct session *sess, char *topic);
+void fe_set_topic (struct session *sess, char *topic, char *stripped_topic);
 void fe_set_hilight (struct session *sess);
 void fe_set_tab_color (struct session *sess, int col);
 void fe_flash_window (struct session *sess);
@@ -63,7 +63,8 @@ int fe_is_banwindow (struct session *sess);
 void fe_add_ban_list (struct session *sess, char *mask, char *who, char *when, int is_exemption);
 void fe_ban_list_end (struct session *sess, int is_exemption);
 void fe_notify_update (char *name);
-void fe_text_clear (struct session *sess);
+void fe_notify_ask (char *name, char *networks);
+void fe_text_clear (struct session *sess, int lines);
 void fe_close_window (struct session *sess);
 void fe_progressbar_start (struct session *sess);
 void fe_progressbar_end (struct server *serv);
@@ -71,6 +72,7 @@ void fe_print_text (struct session *sess, char *text, time_t stamp);
 void fe_userlist_insert (struct session *sess, struct User *newuser, int row, int sel);
 int fe_userlist_remove (struct session *sess, struct User *user);
 void fe_userlist_rehash (struct session *sess, struct User *user);
+void fe_userlist_update (struct session *sess, struct User *user);
 void fe_userlist_move (struct session *sess, struct User *user, int new_row);
 void fe_userlist_numbers (struct session *sess);
 void fe_userlist_clear (struct session *sess);
@@ -100,7 +102,6 @@ void fe_lastlog (session *sess, session *lastlog_sess, char *sstr, gboolean rege
 void fe_set_lag (server *serv, int lag);
 void fe_set_throttle (server *serv);
 void fe_set_away (server *serv);
-void fe_set_color_paste (session *sess, int status);
 void fe_serverlist_open (session *sess);
 void fe_get_str (char *prompt, char *def, void *callback, void *ud);
 void fe_get_int (char *prompt, int def, void *callback, void *ud);
@@ -113,7 +114,18 @@ void fe_get_int (char *prompt, int def, void *callback, void *ud);
 void fe_get_file (const char *title, char *initial,
 				 void (*callback) (void *userdata, char *file), void *userdata,
 				 int flags);
-void fe_ctrl_gui (session *sess, int action, int arg);
+typedef enum {
+	FE_GUI_HIDE,
+	FE_GUI_SHOW,
+	FE_GUI_FOCUS,
+	FE_GUI_FLASH,
+	FE_GUI_COLOR,
+	FE_GUI_ICONIFY,
+	FE_GUI_MENU,
+	FE_GUI_ATTACH,
+	FE_GUI_APPLY,
+} fe_gui_action;
+void fe_ctrl_gui (session *sess, fe_gui_action action, int arg);
 int fe_gui_info (session *sess, int info_type);
 void *fe_gui_info_ptr (session *sess, int info_type);
 void fe_confirm (const char *message, void (*yesproc)(void *), void (*noproc)(void *), void *ud);

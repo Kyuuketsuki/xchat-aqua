@@ -534,7 +534,6 @@ const struct prefs vars[] = {
 
 	{"tab_chans", P_OFFINT (tabchannels), TYPE_BOOL},
 	{"tab_dialogs", P_OFFINT (privmsgtab), TYPE_BOOL},
-	{"tab_icons", P_OFFINT (tab_icons), TYPE_BOOL},
 	{"tab_layout", P_OFFINT (tab_layout), TYPE_INT},
 	{"tab_new_to_front", P_OFFINT (newtabstofront), TYPE_INT},
 	{"tab_notices", P_OFFINT (notices_tabs), TYPE_BOOL},
@@ -562,11 +561,9 @@ const struct prefs vars[] = {
 	{"text_tint_red", P_OFFINT (tint_red), TYPE_INT},
 	{"text_transparent", P_OFFINT (transparent), TYPE_BOOL},
 	{"text_wordwrap", P_OFFINT (wordwrap), TYPE_BOOL},
-
 #ifdef FE_AQUA
-	#include "../fe-aqua/XAVars.h"
+#   include "../fe-aqua/XAVars.h"
 #endif
-
 	{0, 0, 0},
 };
 
@@ -1068,7 +1065,12 @@ xchat_open_file (char *file, int flags, int mode, int xof_flags)
 	char buf[1024];
 
 	if (xof_flags & XOF_FULLPATH)
-		return open (file, flags | OFLAGS);
+	{
+		if (xof_flags & XOF_DOMODE)
+			return open (file, flags | OFLAGS, mode);
+		else
+			return open (file, flags | OFLAGS);
+	}
 
 	snprintf (buf, sizeof (buf), "%s/%s", get_xdir_fs (), file);
 	if (xof_flags & XOF_DOMODE)

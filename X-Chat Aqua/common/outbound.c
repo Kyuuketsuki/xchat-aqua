@@ -174,7 +174,6 @@ process_data_init (char *buf, char *cmd, char *word[],
 		switch (*cmd)
 		{
 		case 0:
-		 jump:
 			buf[j] = 0;
 			for (j = wordcount; j < PDIWORDS; j++)
 			{
@@ -207,12 +206,12 @@ process_data_init (char *buf, char *cmd, char *word[],
 					buf[j] = 0;
 					j++;
 
-					word[wordcount] = &buf[j];
-					word_eol[wordcount] = cmd + 1;
-					wordcount++;
-
-					if (wordcount == PDIWORDS - 1)
-						goto jump;
+					if (wordcount < PDIWORDS)
+					{
+						word[wordcount] = &buf[j];
+						word_eol[wordcount] = cmd + 1;
+						wordcount++;
+					}
 
 					space = TRUE;
 				}
@@ -373,6 +372,9 @@ cmd_away (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		else
 			sess->server->last_away_reason = reason;
 	}
+
+	if (!sess->server->connected)
+		sess->server->reconnect_away = 1;
 
 	return TRUE;
 }
@@ -574,45 +576,8 @@ cmd_unban (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 static int
 cmd_chanopt (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
-	int state;
-	if (!strcasecmp (word[3], "ON"))
-	{
-		state = TRUE;
-	} else if (!strcasecmp (word[3], "OFF"))
-	{
-		state = FALSE;
-	} else
-	{
-		if (!strcasecmp (word[2], "CONFMODE"))
-			state = sess->hide_join_part;
-		else if (!strcasecmp (word[2], "COLORPASTE"))
-			state = sess->color_paste;
-		else if (!strcasecmp (word[2], "BEEP"))
-			state = sess->beep;
-		else if (!strcasecmp (word[2], "TRAY"))
-			state = sess->tray;
-		else
-			return FALSE;
-
-		PrintTextf (sess, "%s is %s\n", word[2], state ? "ON" : "OFF");
-		return TRUE;
-	}
-
-	if (!strcasecmp (word[2], "CONFMODE"))
-	{
-		sess->hide_join_part = state;
-	} else if (!strcasecmp (word[2], "COLORPASTE"))
-	{
-		fe_set_color_paste (sess, state);
-	} else if (!strcasecmp (word[2], "BEEP"))
-	{
-		sess->beep = state;
-	} else if (!strcasecmp (word[2], "TRAY"))
-	{
-		sess->tray = state;
-	}
-
-	return TRUE;
+	/* chanopt.c */
+	return chanopt_command (sess, tbuf, word, word_eol);
 }
 
 static int
@@ -652,12 +617,6 @@ cmd_clear (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	GSList *list = sess_list;
 	char *reason = word_eol[2];
 
-	if (reason[0] == 0)
-	{
-		fe_text_clear (sess);
-		return TRUE;
-	}
-
 	if (strcasecmp (reason, "HISTORY") == 0)
 	{
 		history_free (&sess->history);
@@ -670,13 +629,17 @@ cmd_clear (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		{
 			sess = list->data;
 			if (!sess->nick_said)
-				fe_text_clear (list->data);
+				fe_text_clear (list->data, 0);
 			list = list->next;
 		}
 		return TRUE;
 	}
 
-	return FALSE;
+	if (reason[0] != '-' && !isdigit (reason[0]) && reason[0] != 0)
+		return FALSE;
+
+	fe_text_clear (sess, atoi (reason));
+	return TRUE;
 }
 
 static int
@@ -2246,6 +2209,7 @@ cmd_ignore (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	int i;
 	int type = 0;
 	int quiet = 0;
+	char *mask;
 
 	if (!*word[2])
 	{
@@ -2262,17 +2226,26 @@ cmd_ignore (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		{
 			if (type == 0)
 				return FALSE;
-			i = ignore_add (word[2], type);
+
+			mask = word[2];
+			if (strchr (mask, '?') == NULL &&
+			    strchr (mask, '*') == NULL &&
+			    userlist_find (sess, mask))
+			{
+				mask = tbuf;
+				snprintf (tbuf, TBUFSIZE, "%s!*@*", word[2]);
+			}
+
+			i = ignore_add (mask, type);
 			if (quiet)
 				return TRUE;
 			switch (i)
 			{
 			case 1:
-				EMIT_SIGNAL (XP_TE_IGNOREADD, sess, word[2], NULL, NULL, NULL, 0);
+				EMIT_SIGNAL (XP_TE_IGNOREADD, sess, mask, NULL, NULL, NULL, 0);
 				break;
 			case 2:	/* old ignore changed */
-				EMIT_SIGNAL (XP_TE_IGNORECHANGE, sess, word[2], NULL, NULL,
-								 NULL, 0);
+				EMIT_SIGNAL (XP_TE_IGNORECHANGE, sess, mask, NULL, NULL, NULL, 0);
 			}
 			return TRUE;
 		}
@@ -2406,7 +2379,7 @@ lastlog (session *sess, char *search, gboolean regexp)
 	lastlog_sess->lastlog_sess = sess;
 	lastlog_sess->lastlog_regexp = regexp;	/* remember the search type */
 
-	fe_text_clear (lastlog_sess);
+	fe_text_clear (lastlog_sess, 0);
 	fe_lastlog (sess, lastlog_sess, search, regexp);
 }
 
@@ -2433,11 +2406,38 @@ cmd_list (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	return TRUE;
 }
 
+gboolean
+load_perform_file (session *sess, char *file)
+{
+	char tbuf[1024 + 4];
+	char *nl;
+	FILE *fp;
+
+	fp = xchat_fopen_file (file, "r", XOF_FULLPATH);
+	if (!fp)
+		return FALSE;
+
+	tbuf[1024] = 0;
+	while (fgets (tbuf, 1024, fp))
+	{
+		nl = strchr (tbuf, '\n');
+		if (nl == tbuf) /* skip empty commands */
+			continue;
+		if (nl)
+			*nl = 0;
+		if (tbuf[0] == prefs.cmdchar[0])
+			handle_command (sess, tbuf + 1, TRUE);
+		else
+			handle_command (sess, tbuf, TRUE);
+	}
+	fclose (fp);
+	return TRUE;
+}
+
 static int
 cmd_load (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
-	FILE *fp;
-	char *error, *arg, *nl, *file;
+	char *error, *arg, *file;
 	int len;
 
 	if (!word[2][0])
@@ -2446,30 +2446,12 @@ cmd_load (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	if (strcmp (word[2], "-e") == 0)
 	{
 		file = expand_homedir (word[3]);
-		fp = xchat_fopen_file (file, "r", XOF_FULLPATH);
-		if (!fp)
+		if (!load_perform_file (sess, file))
 		{
 			PrintTextf (sess, _("Cannot access %s\n"), file);
 			PrintText (sess, errorstring (errno));
-			free (file);
-			return TRUE;
 		}
 		free (file);
-
-		tbuf[1024] = 0;
-		while (fgets (tbuf, 1024, fp))
-		{
-			nl = strchr (tbuf, '\n');
-			if (nl == tbuf) /* skip empty commands */
-				continue;
-			if (nl)
-				*nl = 0;
-			if (tbuf[0] == prefs.cmdchar[0])
-				handle_command (sess, tbuf + 1, TRUE);
-			else
-				handle_command (sess, tbuf, TRUE);
-		}
-		fclose (fp);
 		return TRUE;
 	}
 
@@ -2732,8 +2714,14 @@ cmd_notify (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 				EMIT_SIGNAL (XP_TE_DELNOTIFY, sess, word[i], NULL, NULL, NULL, 0);
 				return TRUE;
 			}
-			notify_adduser (word[i], net);
-			EMIT_SIGNAL (XP_TE_ADDNOTIFY, sess, word[i], NULL, NULL, NULL, 0);
+
+			if (net && strcmp (net, "ASK") == 0)
+				fe_notify_ask (word[i], NULL);
+			else
+			{
+				notify_adduser (word[i], net);
+				EMIT_SIGNAL (XP_TE_ADDNOTIFY, sess, word[i], NULL, NULL, NULL, 0);
+			}
 		}
 	} else
 		notify_showlist (sess);
@@ -3517,13 +3505,7 @@ const struct commands xc_cmds[] = {
 	{"BACK", cmd_back, 1, 0, 1, N_("BACK, sets you back (not away)")},
 	{"BAN", cmd_ban, 1, 1, 1,
 	 N_("BAN <mask> [<bantype>], bans everyone matching the mask from the current channel. If they are already on the channel this doesn't kick them (needs chanop)")},
-	{"CHANOPT", cmd_chanopt, 0, 0, 1,
-	 N_("Set per channel options\n"
-	 "CHANOPT CONFMODE ON|OFF - Toggle conf mode/showing of join and part messages\n"
-	 "CHANOPT COLORPASTE ON|OFF - Toggle color paste\n"
-	 "CHANOPT BEEP ON|OFF - Toggle beep on message\n"
-	 "CHANOPT TRAY ON|OFF - Toggle tray blink on message"
-	)},
+	{"CHANOPT", cmd_chanopt, 0, 0, 1, N_("CHANOPT [-quiet] <variable> [<value>]")},
 	{"CHARSET", cmd_charset, 0, 0, 1, 0},
 	{"CLEAR", cmd_clear, 0, 0, 1, N_("CLEAR [ALL|HISTORY], Clears the current text window or command history")},
 	{"CLOSE", cmd_close, 0, 0, 1, N_("CLOSE, Closes the current window/tab")},
@@ -3634,7 +3616,7 @@ const struct commands xc_cmds[] = {
 	 N_("NOTIFY [-n network1[,network2,...]] [<nick>], displays your notify list or adds someone to it")},
 	{"OP", cmd_op, 1, 1, 1,
 	 N_("OP <nick>, gives chanop status to the nick (needs chanop)")},
-	{"PART", cmd_part, 1, 1, 1,
+	{"PART", cmd_part, 1, 1, 0,
 	 N_("PART [<channel>] [<reason>], leaves the channel, by default the current one")},
 	{"PING", cmd_ping, 1, 0, 1,
 	 N_("PING <nick | channel>, CTCP pings nick or channel")},
@@ -3828,6 +3810,7 @@ auto_insert (char *dest, int destlen, unsigned char *src, char *word[],
 						return 2;
 					dest[0] = '%';
 					dest[1] = 0;
+					dest++;
 					break;
 				case 'a':
 					utf = a; break;
@@ -4084,8 +4067,8 @@ static void
 handle_say (session *sess, char *text, int check_spch)
 {
 	struct DCC *dcc;
-	char *word[PDIWORDS];
-	char *word_eol[PDIWORDS];
+	char *word[PDIWORDS+1];
+	char *word_eol[PDIWORDS+1];
 	char pdibuf_static[1024];
 	char newcmd_static[1024];
 	char *pdibuf = pdibuf_static;
@@ -4108,6 +4091,10 @@ handle_say (session *sess, char *text, int check_spch)
 
 	if (check_spch && prefs.perc_color)
 		check_special_chars (text, prefs.perc_ascii);
+
+	/* Python relies on this */
+	word[PDIWORDS] = NULL;
+	word_eol[PDIWORDS] = NULL;
 
 	/* split the text into words and word_eol */
 	process_data_init (pdibuf, text, word, word_eol, TRUE, FALSE);
@@ -4141,7 +4128,7 @@ handle_say (session *sess, char *text, int check_spch)
 		{
 			inbound_chanmsg (sess->server, NULL, sess->channel,
 								  sess->server->nick, text, TRUE, FALSE);
-			set_topic (sess, net_ip (dcc->addr));
+			set_topic (sess, net_ip (dcc->addr), net_ip (dcc->addr));
 			goto xit;
 		}
 	}
@@ -4214,8 +4201,8 @@ handle_command (session *sess, char *cmd, int check_spch)
 	struct popup *pop;
 	int user_cmd = FALSE;
 	GSList *list;
-	char *word[PDIWORDS];
-	char *word_eol[PDIWORDS];
+	char *word[PDIWORDS+1];
+	char *word_eol[PDIWORDS+1];
 	static int command_level = 0;
 	struct commands *int_cmd;
 	char pdibuf_static[1024];
@@ -4246,6 +4233,12 @@ handle_command (session *sess, char *cmd, int check_spch)
 
 	/* split the text into words and word_eol */
 	process_data_init (pdibuf, cmd, word, word_eol, TRUE, TRUE);
+
+	/* ensure an empty string at index 32 for cmd_deop etc */
+	/* (internal use only, plugins can still only read 1-31). */
+	word[PDIWORDS] = "\000\000";
+	word_eol[PDIWORDS] = "\000\000";
+
 	int_cmd = find_internal_command (word[1]);
 	/* redo it without quotes processing, for some commands like /JOIN */
 	if (int_cmd && !int_cmd->handle_quotes)
@@ -4355,12 +4348,7 @@ handle_user_input (session *sess, char *text, int history, int nocommand)
 			"/lost+found/", "/mnt/", "/opt/",
 			"/proc/", "/root/", "/sbin/",
 			"/tmp/", "/usr/", "/var/",
-			"/gnome/", 
-			/* X-Chat Aqua, Mac OS X Specific*/
-			"/System/", "/Library/", "/Developer/",
-		    "/Users/", "/Volumes/", "/Applications/", 
-			/* END */
-			NULL};
+			"/gnome/", NULL};
 		for (i = 0; unix_dirs[i] != NULL; i++)
 			if (strncmp (text, unix_dirs[i], strlen (unix_dirs[i]))==0)
 			{

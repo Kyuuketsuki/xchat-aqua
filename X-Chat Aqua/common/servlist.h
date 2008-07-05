@@ -43,6 +43,7 @@ int servlist_connect_by_netname (session *sess, char *network, gboolean join);
 int servlist_auto_connect (session *sess);
 int servlist_have_auto (void);
 int servlist_check_encoding (char *charset);
+void servlist_cleanup (void);
 
 ircnet *servlist_net_add (char *name, char *comment, int prepend);
 void servlist_net_remove (ircnet *net);
@@ -52,5 +53,10 @@ ircnet *servlist_net_find_from_server (char *server_name);
 void servlist_server_remove (ircnet *net, ircserver *serv);
 ircserver *servlist_server_add (ircnet *net, char *name);
 ircserver *servlist_server_find (ircnet *net, char *name, int *pos);
+
+void joinlist_split (char *autojoin, GSList **channels, GSList **keys);
+gboolean joinlist_is_in_list (server *serv, char *channel);
+void joinlist_free (GSList *channels, GSList *keys);
+gchar *joinlist_merge (GSList *channels, GSList *keys);
 
 #endif

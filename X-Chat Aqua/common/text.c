@@ -29,6 +29,7 @@
 #include "xchat.h"
 #include <glib/ghash.h>
 #include "cfgfiles.h"
+#include "chanopt.h"
 #include "plugin.h"
 #include "fe.h"
 #include "server.h"
@@ -63,7 +64,7 @@ scrollback_get_filename (session *sess, char *buf, int max)
 
 	snprintf (buf, max, "%s/scrollback/%s/%s.txt", get_xdir_fs (), net, "");
 	mkdir_p (buf);
-	
+
 	chan = log_create_filename (sess->channel);
 	snprintf (buf, max, "%s/scrollback/%s/%s.txt", get_xdir_fs (), net, chan);
 	free (chan);
@@ -222,6 +223,17 @@ scrollback_save (session *sess, char *text)
 	if (sess->type == SESS_SERVER)
 		return;
 
+	if (sess->text_scrollback == SET_DEFAULT)
+	{
+		if (!prefs.text_replay)
+			return;
+	}
+	else
+	{
+		if (sess->text_scrollback != SET_ON)
+			return;
+	}
+
 	if (sess->scrollfd == -1)
 	{
 		if (scrollback_get_filename (sess, buf, sizeof (buf)) == NULL)
@@ -259,6 +271,17 @@ scrollback_load (session *sess)
 	time_t stamp;
 	int lines;
 
+	if (sess->text_scrollback == SET_DEFAULT)
+	{
+		if (!prefs.text_replay)
+			return;
+	}
+	else
+	{
+		if (sess->text_scrollback != SET_ON)
+			return;
+	}
+
 	if (scrollback_get_filename (sess, buf, sizeof (buf)) == NULL)
 		return;
 
@@ -280,14 +303,14 @@ scrollback_load (session *sess)
 			{
 				text = strip_color (text + 1, -1, STRIP_COLOR);
 				fe_print_text (sess, text, stamp);
-				free (text);
+				g_free (text);
 			}
 			lines++;
 		}
 	}
 
 	sess->scrollwritten = lines;
-	
+
 	if (lines)
 	{
 		text = ctime (&stamp);
@@ -525,7 +548,7 @@ log_open_file (char *servname, char *channame, char *netname)
 	return fd;
 }
 
-void
+static void
 log_open (session *sess)
 {
 	static gboolean log_error = FALSE;
@@ -543,6 +566,25 @@ log_open (session *sess)
 		fe_message (message, FE_MSG_WAIT | FE_MSG_ERROR);
 
 		log_error = TRUE;
+	}
+}
+
+void
+log_open_or_close (session *sess)
+{
+	if (sess->text_logging == SET_DEFAULT)
+	{
+		if (prefs.logging)
+			log_open (sess);
+		else
+			log_close (sess);
+	}
+	else
+	{
+		if (sess->text_logging)
+			log_open (sess);
+		else
+			log_close (sess);
 	}
 }
 
@@ -587,39 +629,50 @@ log_write (session *sess, char *text)
 	char *file;
 	int len;
 
-	if (sess->logfd != -1 && prefs.logging)
+	if (sess->text_logging == SET_DEFAULT)
 	{
-		/* change to a different log file? */
-		file = log_create_pathname (sess->server->servername, sess->channel,
-											 server_get_network (sess->server, FALSE));
-		if (file)
-		{
-			if (access (file, F_OK) != 0)
-			{
-				close (sess->logfd);
-				sess->logfd = log_open_file (sess->server->servername, sess->channel,
-													  server_get_network (sess->server, FALSE));
-			}
-			g_free (file);
-		}
-
-		if (prefs.timestamp_logs)
-		{
-			len = get_stamp_str (prefs.timestamp_log_format, time (0), &stamp);
-			if (len)
-			{
-				write (sess->logfd, stamp, len);
-				g_free (stamp);
-			}
-		}
-		temp = strip_color (text, -1, STRIP_ALL);
-		len = strlen (temp);
-		write (sess->logfd, temp, len);
-		/* lots of scripts/plugins print without a \n at the end */
-		if (temp[len - 1] != '\n')
-			write (sess->logfd, "\n", 1);	/* emulate what xtext would display */
-		free (temp);
+		if (!prefs.logging)
+			return;
 	}
+	else
+	{
+		if (sess->text_logging != SET_ON)
+			return;
+	}
+
+	if (sess->logfd == -1)
+		log_open (sess);
+
+	/* change to a different log file? */
+	file = log_create_pathname (sess->server->servername, sess->channel,
+										 server_get_network (sess->server, FALSE));
+	if (file)
+	{
+		if (access (file, F_OK) != 0)
+		{
+			close (sess->logfd);
+			sess->logfd = log_open_file (sess->server->servername, sess->channel,
+												  server_get_network (sess->server, FALSE));
+		}
+		g_free (file);
+	}
+
+	if (prefs.timestamp_logs)
+	{
+		len = get_stamp_str (prefs.timestamp_log_format, time (0), &stamp);
+		if (len)
+		{
+			write (sess->logfd, stamp, len);
+			g_free (stamp);
+		}
+	}
+	temp = strip_color (text, -1, STRIP_ALL);
+	len = strlen (temp);
+	write (sess->logfd, temp, len);
+	/* lots of scripts/plugins print without a \n at the end */
+	if (temp[len - 1] != '\n')
+		write (sess->logfd, "\n", 1);	/* emulate what xtext would display */
+	g_free (temp);
 }
 
 /* converts a CP1252/ISO-8859-1(5) hybrid to UTF-8                           */
@@ -791,8 +844,7 @@ PrintText (session *sess, char *text)
 	}
 
 	log_write (sess, text);
-	if (prefs.text_replay)
-		scrollback_save (sess, text);
+	scrollback_save (sess, text);
 	fe_print_text (sess, text, 0);
 
 	if (conv)
@@ -1914,11 +1966,61 @@ text_emit (int index, session *sess, char *a, char *b, char *c, char *d)
 	if (plugin_emit_print (sess, word))
 		return;
 
-	sound_play_event (index);
-
 	/* If a plugin's callback executes "/close", 'sess' may be invalid */
-	if (is_session (sess))
-		display_event (sess, index, word, stripcolor_args);
+	if (!is_session (sess))
+		return;
+
+	switch (index)
+	{
+	case XP_TE_JOIN:
+	case XP_TE_PART:
+	case XP_TE_PARTREASON:
+	case XP_TE_QUIT:
+		/* implement ConfMode / Hide Join and Part Messages */
+		if (chanopt_is_set (prefs.confmode, sess->text_hidejoinpart))
+			return;
+		break;
+
+	/* ===Private message=== */
+	case XP_TE_PRIVMSG:
+	case XP_TE_DPRIVMSG:
+priv:
+		if (chanopt_is_set_a (prefs.input_beep_priv, sess->alert_beep))
+			sound_beep (sess);
+		if (chanopt_is_set_a (prefs.input_flash_priv, sess->alert_taskbar))
+			fe_flash_window (sess);
+		/* why is this one different? because of plugin-tray.c's hooks! ugly */
+		if (sess->alert_tray == SET_ON)
+			fe_tray_set_icon (FE_ICON_MESSAGE);
+		break;
+
+	/* ===Highlighted message=== */
+	case XP_TE_HCHANACTION:
+	case XP_TE_HCHANMSG:
+		if (chanopt_is_set_a (prefs.input_beep_hilight, sess->alert_beep))
+			sound_beep (sess);
+		if (chanopt_is_set_a (prefs.input_flash_hilight, sess->alert_taskbar))
+			fe_flash_window (sess);
+		if (sess->alert_tray == SET_ON)
+			fe_tray_set_icon (FE_ICON_MESSAGE);
+		break;
+
+	/* ===Channel message=== */
+	case XP_TE_CHANACTION:
+	case XP_TE_CHANMSG:
+		if (sess->type == SESS_DIALOG)	/* there's no PRIVACTION! */
+			goto priv;
+		if (chanopt_is_set_a (prefs.input_beep_chans, sess->alert_beep))
+			sound_beep (sess);
+		if (chanopt_is_set_a (prefs.input_flash_chans, sess->alert_taskbar))
+			fe_flash_window (sess);
+		if (sess->alert_tray == SET_ON)
+			fe_tray_set_icon (FE_ICON_MESSAGE);
+		break;
+	}
+
+	sound_play_event (index);
+	display_event (sess, index, word, stripcolor_args);
 }
 
 char *
@@ -2025,11 +2127,9 @@ sound_find_command (void)
 void
 sound_play (const char *file, gboolean quiet)
 {
-
 #ifdef FE_AQUA
 	fe_play_wave (file);
 #else
-
 	char buf[512];
 	char wavfile[512];
 	char *file_fs;
@@ -2095,8 +2195,7 @@ sound_play (const char *file, gboolean quiet)
 	}
 
 	g_free (file_fs);
-#endif  
-		/* FE_AQUA */
+#endif  /* FE_AQUA */
 }
 
 void

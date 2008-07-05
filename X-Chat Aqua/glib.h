@@ -50,7 +50,7 @@
 #include <glib/gmacros.h>
 #include <glib/gmain.h>
 //#include <glib/gmappedfile.h>
-//#include <glib/gmarkup.h>
+#include <glib/gmarkup.h>
 #include <glib/gmem.h>
 #include <glib/gmessages.h>
 //#include <glib/gnode.h>

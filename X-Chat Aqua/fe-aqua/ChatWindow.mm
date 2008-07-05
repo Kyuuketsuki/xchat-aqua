@@ -710,8 +710,8 @@ static NSImage *empty_image;
 
 - (void) do_conf_mode:(id) sender
 {
-    sess->hide_join_part = !sess->hide_join_part;
-    [sender setState:sess->hide_join_part ? NSOnState : NSOffState];
+    sess->text_hidejoinpart = !sess->text_hidejoinpart;
+    [sender setState:sess->text_hidejoinpart ? NSOnState : NSOffState];
 }
 
 - (void) do_mirc_color:(id) sender
@@ -746,7 +746,7 @@ static NSImage *empty_image;
 
     // First item is the conference mode button
 
-    [[m itemAtIndex:0] setState:sess->hide_join_part ? NSOnState : NSOffState];
+    [[m itemAtIndex:0] setState:sess->text_hidejoinpart ? NSOnState : NSOffState];
     
     NSRect rect = NSMakeRect (0,0,100,14);
     ColorPalette *p = [[AquaChat sharedAquaChat] getPalette];
@@ -857,7 +857,7 @@ static NSImage *empty_image;
     [chat_view setDelegate:self];
 
     [self setup_sess_menu];
-    [self clear];
+    [self clear:0];
     [self set_nick];
     [self set_title];
     [self set_nonchannel:false];
@@ -1024,8 +1024,9 @@ static NSImage *empty_image;
     [self set_topic:""];
 }
 
-- (void) clear
+- (void) clear:(int)lines
 {
+    //TODO: implement this
     [chat_text clear_text];
 }
 

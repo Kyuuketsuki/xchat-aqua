@@ -1231,7 +1231,7 @@ xchat_list_fields (xchat_plugin *ph, const char *name)
 	};
 	static const char * const users_fields[] =
 	{
-		"iaway", "shost", "tlasttalk", "snick", "sprefix", "iselected", NULL
+		"iaway", "shost", "tlasttalk", "snick", "sprefix", "srealname", "iselected", NULL
 	};
 	static const char * const list_of_lists[] =
 	{
@@ -1366,6 +1366,8 @@ xchat_list_str (xchat_plugin *ph, xchat_list *xlist, const char *name)
 			return ((struct User *)data)->hostname;
 		case 0xc594b292: /* prefix */
 			return ((struct User *)data)->prefix;
+		case 0xccc6d529: /* realname */
+			return ((struct User *)data)->realname;
 		}
 		break;
 	}
@@ -1427,13 +1429,15 @@ xchat_list_int (xchat_plugin *ph, xchat_list *xlist, const char *name)
 		case 0xd1b:	/* id */
 			return ((struct session *)data)->server->id;
 		case 0x5cfee87:	/* flags */
-			tmp = ((struct session *)data)->tray;            /* bit 9 */
+			tmp = ((struct session *)data)->alert_taskbar;   /* bit 10 */
 			tmp <<= 1;
-			tmp |= ((struct session *)data)->beep;               /* 8 */
+			tmp |= ((struct session *)data)->alert_tray;         /* 9 */
 			tmp <<= 1;
-			tmp |= ((struct session *)data)->color_paste;        /* 7 */
+			tmp |= ((struct session *)data)->alert_beep;         /* 8 */
 			tmp <<= 1;
-			tmp |= ((struct session *)data)->hide_join_part;     /* 6 */
+			/*tmp |= ((struct session *)data)->color_paste;*/    /* 7 */
+			tmp <<= 1;
+			tmp |= ((struct session *)data)->text_hidejoinpart;   /* 6 */
 			tmp <<= 1;
 			tmp |= ((struct session *)data)->server->have_idmsg; /* 5 */
 			tmp <<= 1;
@@ -1558,5 +1562,5 @@ xchat_strip (xchat_plugin *ph, const char *str, int len, int flags)
 void
 xchat_free (xchat_plugin *ph, void *ptr)
 {
-	free (ptr);
+	g_free (ptr);
 }

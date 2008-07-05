@@ -85,7 +85,7 @@
 
 // Front end methods
 - (void) close_window;
-- (void) clear;
+- (void) clear:(int)lines;
 - (void) clear_channel;
 - (void) print_text:(const char *)text;
 - (void) print_text:(const char *)text stamp:(time_t)stamp;

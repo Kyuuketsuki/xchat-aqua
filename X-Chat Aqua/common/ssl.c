@@ -23,7 +23,7 @@
 #include <string.h>				  /* strncpy() */
 #include "ssl.h"					  /* struct cert_info */
 #include "inet.h"
-#include "config.h"		  /* HAVE_SNPRINTF */
+#include "../config.h"		  /* HAVE_SNPRINTF */
 
 #ifndef HAVE_SNPRINTF
 #define snprintf g_snprintf

@@ -16,7 +16,7 @@ void inbound_ujoin (server *serv, char *chan, char *nick, char *ip);
 void inbound_topictime (server *serv, char *chan, char *nick, time_t stamp);
 void inbound_topic (server *serv, char *chan, char *topic_text);
 void inbound_user_info_start (session *sess, char *nick);
-int inbound_user_info (session *sess, char *chan, char *user, char *host, char *servname, char *nick, char *realname, unsigned int away);
+void inbound_user_info (session *sess, char *chan, char *user, char *host, char *servname, char *nick, char *realname, unsigned int away);
 void inbound_foundip (session *sess, char *ip);
 int inbound_banlist (session *sess, time_t stamp, char *chan, char *mask, char *banner, int is_exemption);
 void inbound_ping_reply (session *sess, char *timestring, char *from);
@@ -27,12 +27,13 @@ void inbound_login_start (session *sess, char *nick, char *servname);
 void inbound_login_end (session *sess, char *text);
 void inbound_chanmsg (server *serv, session *sess, char *chan, char *from, char *text, char fromme, int id);
 void clear_channel (session *sess);
-void set_topic (session *sess, char *topic);
+void set_topic (session *sess, char *topic, char *stripped_topic);
 void inbound_privmsg (server *serv, char *from, char *ip, char *text, int id);
 void inbound_action (session *sess, char *chan, char *from, char *text, int fromme, int id);
 void inbound_newnick (server *serv, char *nick, char *newnick, int quiet);
 void do_dns (session *sess, char *nick, char *host);
 void inbound_identified (server *serv);
-int FromNick (char *nick, char *nicks);
+gboolean alert_match_word (char *word, char *masks);
+gboolean alert_match_text (char *text, char *masks);
 
 #endif

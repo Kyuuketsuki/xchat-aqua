@@ -137,6 +137,9 @@
 		0F8EA7A20CFB6CF9001AE9AE /* xchat.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7980CFB6CF9001AE9AE /* xchat.tiff */; };
 		0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */; };
 		0F8EA7C90CFB7094001AE9AE /* SGRowColView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA7C80CFB7094001AE9AE /* SGRowColView.mm */; };
+		0F94E9990E1F91AE003CA262 /* gmarkup.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E9980E1F91AE003CA262 /* gmarkup.c */; };
+		0F94E9B10E1F92E3003CA262 /* chanopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F94E9AF0E1F92E3003CA262 /* chanopt.c */; };
+		0F94E9B20E1F92E3003CA262 /* chanopt.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F94E9B00E1F92E3003CA262 /* chanopt.h */; };
 		0FC8F3E90DEEDA0C00504F31 /* python.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC8F3E80DEEDA0C00504F31 /* python.c */; };
 		0FC8F3F60DEEDAB300504F31 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; };
 		0FC8F4070DEEE05500504F31 /* localcharset.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA72E0CFB3D1A001AE9AE /* localcharset.c */; };
@@ -595,6 +598,9 @@
 		0F8EA7990CFB6CF9001AE9AE /* yellow.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = yellow.tiff; path = "fe-aqua/yellow.tiff"; sourceTree = "<group>"; };
 		0F8EA7C70CFB7094001AE9AE /* SGRowColView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGRowColView.h; path = "fe-aqua/SGRowColView.h"; sourceTree = "<group>"; };
 		0F8EA7C80CFB7094001AE9AE /* SGRowColView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SGRowColView.mm; path = "fe-aqua/SGRowColView.mm"; sourceTree = "<group>"; };
+		0F94E9980E1F91AE003CA262 /* gmarkup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gmarkup.c; sourceTree = "<group>"; };
+		0F94E9AF0E1F92E3003CA262 /* chanopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = chanopt.c; path = common/chanopt.c; sourceTree = "<group>"; };
+		0F94E9B00E1F92E3003CA262 /* chanopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = chanopt.h; path = common/chanopt.h; sourceTree = "<group>"; };
 		0FC8F3DE0DEED9AB00504F31 /* python-leopard.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "python-leopard.so"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FC8F3DF0DEED9AB00504F31 /* Info devel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info devel.plist"; sourceTree = "<group>"; };
 		0FC8F3E80DEEDA0C00504F31 /* python.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = python.c; path = plugins/python/python.c; sourceTree = "<group>"; };
@@ -660,6 +666,8 @@
 		0F8EA3160CFAA342001AE9AE /* xchat common */ = {
 			isa = PBXGroup;
 			children = (
+				0F94E9AF0E1F92E3003CA262 /* chanopt.c */,
+				0F94E9B00E1F92E3003CA262 /* chanopt.h */,
 				0F8EA3170CFAA3F2001AE9AE /* cfgfiles.c */,
 				0F8EA3180CFAA3F2001AE9AE /* cfgfiles.h */,
 				0F8EA3190CFAA3F2001AE9AE /* ctcp.c */,
@@ -801,6 +809,7 @@
 		0F8EA3AE0CFAF437001AE9AE /* glib */ = {
 			isa = PBXGroup;
 			children = (
+				0F94E9980E1F91AE003CA262 /* gmarkup.c */,
 				0F3062310D847D040084F2CA /* glibintl.h */,
 				0F8EA7240CFB3CC8001AE9AE /* libcharset */,
 				0F8EA5F10CFB24A3001AE9AE /* gprintf.c */,
@@ -1152,6 +1161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC8F4E50DEEE6F200504F31 /* xalocalization.h in Headers */,
+				0F94E9B20E1F92E3003CA262 /* chanopt.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1408,8 @@
 				0FC8F5180DEEE9EA00504F31 /* gutils.c in Sources */,
 				0FC8F5190DEEE9EE00504F31 /* glist.c in Sources */,
 				0FC8F51A0DEEE9F200504F31 /* gatomic.c in Sources */,
+				0F94E9990E1F91AE003CA262 /* gmarkup.c in Sources */,
+				0F94E9B10E1F92E3003CA262 /* chanopt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

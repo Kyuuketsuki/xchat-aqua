@@ -39,9 +39,10 @@
 #include <errno.h>
 #include "xchat.h"
 #include "xchatc.h"
+#include <glib/gmarkup.h>
 #include <ctype.h>
 #include "util.h"
-#include "config.h"
+#include "../config.h"
 
 #define WANTSOCKET
 #include "inet.h"
@@ -420,23 +421,31 @@ expand_homedir (char *file)
 	return strdup (file);
 }
 
-char *
-strip_color (char *text, int len, int flags)
+gchar *
+strip_color (const char *text, int len, int flags)
 {
 	char *new_str;
 
 	if (len == -1)
 		len = strlen (text);
 
-	new_str = malloc (len + 2);
+	new_str = g_malloc (len + 2);
 	strip_color2 (text, len, new_str, flags);
+
+	if (flags & STRIP_ESCMARKUP)
+	{
+		char *esc = g_markup_escape_text (new_str, -1);
+		g_free (new_str);
+		return esc;
+	}
+
 	return new_str;
 }
 
 /* CL: strip_color2 strips src and writes the output at dst; pass the same pointer
 	in both arguments to strip in place. */
 int
-strip_color2 (char *src, int len, char *dst, int flags)
+strip_color2 (const char *src, int len, char *dst, int flags)
 {
 	int rcol = 0, bgcol = 0;
 	char *start = dst;

@@ -1666,10 +1666,19 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 	{
 		char cert_file[256];
 
+		/* first try network specific cert/key */
 		snprintf (cert_file, sizeof (cert_file), "%s/%s.pem",
 					 get_xdir_fs (), server_get_network (serv, TRUE));
 		if (SSL_CTX_use_certificate_file (ctx, cert_file, SSL_FILETYPE_PEM) == 1)
 			SSL_CTX_use_PrivateKey_file (ctx, cert_file, SSL_FILETYPE_PEM);
+		else
+		{
+			/* if that doesn't exist, try ~/.xchat2/client.pem */
+			snprintf (cert_file, sizeof (cert_file), "%s/%s.pem",
+						 get_xdir_fs (), "client");
+			if (SSL_CTX_use_certificate_file (ctx, cert_file, SSL_FILETYPE_PEM) == 1)
+				SSL_CTX_use_PrivateKey_file (ctx, cert_file, SSL_FILETYPE_PEM);
+		}
 	}
 #endif
 
@@ -1970,6 +1979,8 @@ server_free (server *serv)
 		free (serv->last_away_reason);
 	if (serv->encoding)
 		free (serv->encoding);
+	if (serv->autojoin)
+		free (serv->autojoin);
 
 	fe_server_callback (serv);
 

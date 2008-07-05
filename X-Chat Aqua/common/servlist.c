@@ -793,6 +793,34 @@ servlist_server_remove_all (ircnet *net)
 	}
 }
 
+static void
+free_and_clear (char *str)
+{
+	if (str)
+	{
+		char *orig = str;
+		while (*str)
+			*str++ = 0;
+		free (orig);
+	}
+}
+
+/* executed on exit: Clear any password strings */
+
+void
+servlist_cleanup (void)
+{
+	GSList *list;
+	ircnet *net;
+
+	for (list = network_list; list; list = list->next)
+	{
+		net = list->data;
+		free_and_clear (net->pass);
+		free_and_clear (net->nickserv);
+	}
+}
+
 void
 servlist_net_remove (ircnet *net)
 {
@@ -810,14 +838,12 @@ servlist_net_remove (ircnet *net)
 		free (net->user);
 	if (net->real)
 		free (net->real);
-	if (net->pass)
-		free (net->pass);
+	free_and_clear (net->pass);
 	if (net->autojoin)
 		free (net->autojoin);
 	if (net->command)
 		free (net->command);
-	if (net->nickserv)
-		free (net->nickserv);
+	free_and_clear (net->nickserv);
 	if (net->comment)
 		free (net->comment);
 	if (net->encoding)
@@ -866,18 +892,12 @@ servlist_load_defaults (void)
 		if (def[i].network)
 		{
 			net = servlist_net_add (def[i].network, def[i].host, FALSE);
-#ifdef WIN32
-			/* Windows gets UTF-8 for new users. Unix gets "System Default",
-				which is often UTF-8 anyway! */
-			net->encoding = strdup ("UTF-8");
-#endif
+			net->encoding = strdup ("IRC (Latin/Unicode Hybrid)");
 			if (def[i].channel)
 				net->autojoin = strdup (def[i].channel);
 			if (def[i].charset)
 			{
-#ifdef WIN32
 				free (net->encoding);
-#endif
 				net->encoding = strdup (def[i].charset);
 			}
 			if (g_str_hash (def[i].network) == 0x8e1b96f7)
@@ -897,7 +917,7 @@ static int
 servlist_load (void)
 {
 	FILE *fp;
-	char buf[258];
+	char buf[2048];
 	int len;
 	char *tmp;
 	ircnet *net = NULL;
@@ -1102,3 +1122,163 @@ servlist_save (void)
 	fclose (fp);
 	return TRUE;
 }
+
+static void
+joinlist_free1 (GSList *list)
+{
+	GSList *head = list;
+
+	for (; list; list = list->next)
+		g_free (list->data);
+	g_slist_free (head);
+}
+
+void
+joinlist_free (GSList *channels, GSList *keys)
+{
+	joinlist_free1 (channels);
+	joinlist_free1 (keys);
+}
+
+gboolean
+joinlist_is_in_list (server *serv, char *channel)
+{
+	GSList *channels, *keys;
+	GSList *list;
+
+	if (!serv->network || !((ircnet *)serv->network)->autojoin)
+		return FALSE;
+
+	joinlist_split (((ircnet *)serv->network)->autojoin, &channels, &keys);
+
+	for (list = channels; list; list = list->next)
+	{
+		if (serv->p_cmp (list->data, channel) == 0)
+			return TRUE;
+	}
+
+	joinlist_free (channels, keys);
+
+	return FALSE;
+}
+
+gchar *
+joinlist_merge (GSList *channels, GSList *keys)
+{
+	GString *out = g_string_new (NULL);
+	GSList *list;
+	int i, j;
+
+	for (; channels; channels = channels->next)
+	{
+		g_string_append (out, channels->data);
+
+		if (channels->next)
+			g_string_append_c (out, ',');
+	}
+
+	/* count number of REAL keys */
+	for (i = 0, list = keys; list; list = list->next)
+		if (list->data)
+			i++;
+
+	if (i > 0)
+	{
+		g_string_append_c (out, ' ');
+
+		for (j = 0; keys; keys = keys->next)
+		{
+			if (keys->data)
+			{
+				g_string_append (out, keys->data);
+				j++;
+				if (j == i)
+					break;
+			}
+
+			if (keys->next)
+				g_string_append_c (out, ',');
+		}
+	}
+
+	return g_string_free (out, FALSE);
+}
+
+void
+joinlist_split (char *autojoin, GSList **channels, GSList **keys)
+{
+	char *parta, *partb;
+	char *chan, *key;
+	int len;
+
+	*channels = NULL;
+	*keys = NULL;
+
+	/* after the first space, the keys begin */
+	parta = autojoin;
+	partb = strchr (autojoin, ' ');
+	if (partb)
+		partb++;
+
+	while (1)
+	{
+		chan = parta;
+		key = partb;
+
+		if (1)
+		{
+			while (parta[0] != 0 && parta[0] != ',' && parta[0] != ' ')
+			{
+				parta++;
+			}
+		}
+
+		if (partb)
+		{
+			while (partb[0] != 0 && partb[0] != ',' && partb[0] != ' ')
+			{
+				partb++;
+			}
+		}
+
+		len = parta - chan;
+		if (len < 1)
+			break;
+		*channels = g_slist_append (*channels, g_strndup (chan, len));
+
+		len = partb - key;
+		*keys = g_slist_append (*keys, len ? g_strndup (key, len) : NULL);
+
+		if (parta[0] == ' ' || parta[0] == 0)
+			break;
+		parta++;
+
+		if (partb)
+		{
+			if (partb[0] == 0 || partb[0] == ' ')
+				partb = NULL;	/* no more keys, but maybe more channels? */
+			else
+				partb++;
+		}
+	}
+
+#if 0
+	GSList *lista, *listb;
+	int i;
+
+	printf("-----\n");
+	i = 0;
+	lista = *channels;
+	listb = *keys;
+	while (lista)
+	{
+		printf("%d. |%s| |%s|\n", i, lista->data, listb->data);
+		i++;
+		lista = lista->next;
+		listb = listb->next;
+	}
+	printf("-----\n\n");
+#endif
+}
+
+

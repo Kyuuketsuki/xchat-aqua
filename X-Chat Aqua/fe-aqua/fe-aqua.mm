@@ -963,7 +963,7 @@ fe_add_rawlog (struct server *serv, char *text, int len, int outbound)
 }
 
 void
-fe_set_topic (struct session *sess, char *topic)
+fe_set_topic (struct session *sess, char *topic, char *stripped_topic)
 {
     [sess->gui->cw set_topic:topic];
 }
@@ -1051,10 +1051,15 @@ fe_notify_update (char *name)
         [[AquaChat sharedAquaChat] notify_list_update];
 }
 
-void
-fe_text_clear (struct session *sess)
+void fe_notify_ask (char *name, char *networks)
 {
-    [sess->gui->cw clear];
+    NSLog(@"Unimplemented function “fe_notify_ask”(%s, %s)", name, networks);
+}
+
+void
+fe_text_clear (struct session *sess, int lines)
+{
+    [sess->gui->cw clear:lines];
 }
 
 void
@@ -1074,6 +1079,13 @@ void
 fe_userlist_insert (struct session *sess, struct User *newuser, int row, int selected)
 {
     [sess->gui->cw userlist_insert:newuser row:row select:selected];
+}
+
+void fe_userlist_update (struct session *sess, struct User *user)
+{
+    NSLog(@"Unimplemented function: “fe_userlist_update”");
+    fe_userlist_remove(sess, user);
+    fe_userlist_insert(sess, user, 0, 0);
 }
 
 int
@@ -1292,7 +1304,7 @@ fe_play_wave (const char *fname)
 }
 
 void
-fe_ctrl_gui (session *sess, int action, int arg)
+fe_ctrl_gui (session *sess, fe_gui_action action, int arg)
 {
     [[AquaChat sharedAquaChat] ctrl_gui:sess action:action arg:arg];
 }

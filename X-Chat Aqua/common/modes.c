@@ -547,7 +547,7 @@ handle_mode (server * serv, char *word[], char *word_eol[],
 	/* count the number of arguments (e.g. after the -o+v) */
 	num_args = 0;
 	i = 1;
-	while (i < PDIWORDS)
+	while ((i + offset + 1) < PDIWORDS)
 	{
 		i++;
 		if (!(*word[i + offset]))
@@ -658,6 +658,8 @@ inbound_005 (server * serv, char *word[])
 				serv->nickservtype = 1;
 			else if (strcasecmp (word[w] + 8, "UniBG") == 0)
 				serv->nickservtype = 3;
+			else if (strcasecmp (word[w] + 8, "QuakeNet") == 0)
+				serv->nickservtype = 4;
 
 		} else if (strncmp (word[w], "CASEMAPPING=", 12) == 0)
 		{
