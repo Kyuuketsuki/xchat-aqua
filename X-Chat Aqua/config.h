@@ -19,6 +19,7 @@
 #define HAVE_SNPRINTF  1
 #define HAVE_VSNPRINTF 1
 #define USE_IPV6 1
+#define USE_PLUGIN 1
 #include "glibconfig.h"
 #include <stdio.h>
 #endif

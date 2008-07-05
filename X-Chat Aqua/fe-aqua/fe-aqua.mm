@@ -53,6 +53,8 @@ extern "C" {
 #import "SG.h"
 #import "MenuMaker.h"
 
+#include "plugins/bundle_loader/bundle_loader_plugin.h"
+
 static NSAutoreleasePool *initPool;
 
 extern struct text_event te[];
@@ -505,6 +507,7 @@ one_time_work_phase2()
 		return;
 
 	plugin_add (current_sess, NULL, NULL, (void *) my_plugin_init, NULL, NULL, FALSE);
+    plugin_add (current_sess, NULL, NULL, (void *) bundle_loader_init, NULL, NULL, FALSE);
 		
 	if (prefs.checkvers)
 	{

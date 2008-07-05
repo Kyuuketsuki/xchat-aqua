@@ -464,7 +464,7 @@ EventInfo text_event_info[NUM_XP];
 - (void) do_flush_buffer:(id) sender
 {
     if (current_sess)
-        [current_sess->gui->cw clear];
+        [current_sess->gui->cw clear:0];
 }
 
 - (void) do_next_window:(id) sender
