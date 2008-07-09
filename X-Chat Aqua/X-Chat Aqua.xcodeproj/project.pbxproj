@@ -260,21 +260,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F2FF0450E1FD15000DE4D41 /* python-tiger */;
+			remoteGlobalIDString = 0F2FF0450E1FD15000DE4D41;
 			remoteInfo = "python-tiger";
 		};
 		0F8F06EB0E1FDB0C00359159 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F8F06D60E1FDA8500359159 /* perl-leopard */;
+			remoteGlobalIDString = 0F8F06D60E1FDA8500359159;
 			remoteInfo = "perl-leopard";
 		};
 		0F8F08340E1FE08700359159 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F8F08100E1FE00800359159 /* tcl */;
+			remoteGlobalIDString = 0F8F08100E1FE00800359159;
 			remoteInfo = tcl;
 		};
 		0FC8F4460DEEE11100504F31 /* PBXContainerItemProxy */ = {

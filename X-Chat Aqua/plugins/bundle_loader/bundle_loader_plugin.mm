@@ -90,6 +90,8 @@ void bundle_loader_auto_load(int pass)
     dirent * de;
     
     dir = opendir([plugins_dir UTF8String]);
+    if(!dir)
+        return;
     while(de=readdir(dir)) {
         if((de->d_namlen < 3 && de->d_name[0] == '.') || (de->d_namlen == 2 && de->d_name[1] == 0))
             continue;
@@ -113,7 +115,7 @@ int bundle_loader_init (xchat_plugin *plugin_handle, char **plugin_name,
     
 	*plugin_name = "Bundle loader";
 	*plugin_desc = "X-Chat Aqua Bundle loader";
-	*plugin_version = "0.1";
+	*plugin_version = "";
     
 	xchat_hook_command (ph, "LOAD", XCHAT_PRI_NORM, bundle_loader_load, 0, 0);
     
