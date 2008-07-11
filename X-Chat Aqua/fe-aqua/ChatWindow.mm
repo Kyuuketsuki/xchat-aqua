@@ -1586,6 +1586,13 @@ static NSImage *empty_image;
 /* CL end */
 }
 
+// Used only for updating menus
+- (void) userlist_update:(struct User *)user
+{
+    if(userlist_menu_curuser && !strcmp(userlist_menu_curuser->nick, user->nick))
+        [userlist_menu setSubmenu:[[MenuMaker defaultMenuMaker] infoMenuForUser:user inSession:sess]];
+}
+
 - (void) userlist_numbers
 {
     [userlist_stats_text setStringValue:[NSString stringWithFormat:NSLocalizedStringFromTable(@"%d ops, %d total", @"xchat", nil),
@@ -1878,15 +1885,23 @@ static NSImage *empty_image;
 	NSString *nick = nil;
 	
 	[menu setAutoenablesItems:false];
+    if(userlist_menu)
+        [userlist_menu release];
 	
 	if (count > 1) {
 		[[menu addItemWithTitle:[NSString stringWithFormat:@"%d users selected", count] action:nil keyEquivalent:@""] setEnabled:NO];
+
+        userlist_menu_curuser = NULL;
 	} else {
 		OneUser *userObject = (OneUser *) [userlist objectAtIndex:[rows firstIndex]];
 		struct User *user = [userObject getUser];
 
 		nick = [userObject nick];
 		NSMenuItem *userItem = [menu addItemWithTitle:nick action:nil keyEquivalent:@""];
+
+        userlist_menu_curuser = user;
+        userlist_menu         = [userItem retain];
+        
 		[userItem setSubmenu:[[MenuMaker defaultMenuMaker] infoMenuForUser:user inSession:sess]];
 
 	}

@@ -61,6 +61,8 @@
     NSPopUpButton	*sess_menu;
     
     NSMutableArray *userlist;
+    NSMenuItem * userlist_menu;
+    User * userlist_menu_curuser;
 /* CL */
 	float maxNickWidth;
 	float maxHostWidth;
@@ -95,6 +97,7 @@
 - (void) userlist_insert:(struct User *)user row:(int)row select:(bool)select;
 - (bool) userlist_remove:(struct User *)user;
 - (void) userlist_move:(struct User *)user row:(int)row;
+- (void) userlist_update:(struct User *)user;
 - (void) userlist_numbers;
 - (void) userlist_clear;
 - (void) userlist_rehash:(struct User *) user;

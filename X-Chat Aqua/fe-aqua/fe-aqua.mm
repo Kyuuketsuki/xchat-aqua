@@ -1086,9 +1086,7 @@ fe_userlist_insert (struct session *sess, struct User *newuser, int row, int sel
 
 void fe_userlist_update (struct session *sess, struct User *user)
 {
-    NSLog(@"Unimplemented function: “fe_userlist_update”");
-    fe_userlist_remove(sess, user);
-    fe_userlist_insert(sess, user, 0, 0);
+    [sess->gui->cw userlist_update:user];
 }
 
 int

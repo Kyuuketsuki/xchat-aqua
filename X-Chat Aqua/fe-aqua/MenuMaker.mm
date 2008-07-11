@@ -256,7 +256,13 @@ static MenuMaker *defaultMenuMaker;
 			char *msg = away->message ? strip_color(away->message, -1, STRIP_ALL) : nil;
 			[userMenu addItem:[self userInfoItemWithLabel:NSLocalizedStringFromTable(@"Away Msg", @"xchat", @"") value:msg]];
 			if (msg) free(msg);
-		}
+		}else {
+            // Creating a whois for away message
+            char buf[512];
+            sprintf(buf, "WHOIS %s %s", user->nick, user->nick);
+            handle_command(sess, buf, FALSE);
+            sess->server->skip_next_whois = 1;
+        }
 	}
 	
 	if (user->lasttalk)
