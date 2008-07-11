@@ -45,6 +45,8 @@ extern "C" {
 - (NSMenuItem *)commandItemWithName:(const char *)name command:(const char *)cmd target:(NSString *)target session:(session *)sess;
 - (NSMenuItem *)togglerItemWithName:(const char *)name option:(const char *)opt;
 
+- (NSString *)stripImageFromTitle:(NSString *)title icon:(NSString **)icon;
+
 - (void) appendItemList:(GSList *)list toMenu:(NSMenu *)menu withTarget:(NSString *)target inSession:(session *)sess;
 - (void) menu_add:(menu_entry *) entry;
 - (void) menu_del:(menu_entry *) entry;

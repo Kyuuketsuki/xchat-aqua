@@ -308,10 +308,17 @@ static MenuMaker *defaultMenuMaker;
 
 - (NSMenuItem *)commandItemWithName:(const char *)name command:(const char *)cmd target:(NSString *)target session:(session *)sess
 {
-	NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[NSString stringWithUTF8String:name] action:@selector(execute:) keyEquivalent:@""];
+    NSString * icon = nil;
+	NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[self stripImageFromTitle:[NSString stringWithUTF8String:name]  icon:&icon] action:@selector(execute:) keyEquivalent:@""];
 	CommandHandler *handler = [CommandHandler handlerWithCommand:cmd target:(target ? [target UTF8String] : NULL) session:sess];
 	[item setRepresentedObject:handler];
 	[item setTarget:handler];
+    if(icon)
+    {
+        NSString * path = [[NSBundle mainBundle] pathForResource:icon ofType:@"tiff" inDirectory:@"Images"];
+        if(path)
+            [item setImage:[[[NSImage alloc] initWithContentsOfFile:path] autorelease]];
+    }
 	return [item autorelease];
 }
 
@@ -334,7 +341,7 @@ static MenuMaker *defaultMenuMaker;
 	while (list) {
 		pop = (struct popup *) list->data;
 		if (!strncasecmp (pop->name, "SUB", 3)) {
-			item = [currentMenu addItemWithTitle:[NSString stringWithUTF8String:pop->cmd] action:nil keyEquivalent:@""];
+			item = [currentMenu addItemWithTitle:[self stripImageFromTitle:[NSString stringWithUTF8String:pop->cmd] icon:nil] action:nil keyEquivalent:@""];
 
 			currentMenu = [[[NSMenu alloc] initWithTitle:@""] autorelease];
 			[currentMenu setAutoenablesItems:false];
@@ -436,5 +443,24 @@ static MenuMaker *defaultMenuMaker;
 	[item setEnabled:entry->enable];
 	[item setState:entry->state ? NSOnState : NSOffState];
 }
+
+- (NSString *)stripImageFromTitle:(NSString *)title icon:(NSString **)icon
+{
+    NSUInteger length; 
+    title = [title stringByReplacingOccurrencesOfString:@"_" withString:@""];
+    length = [title length];
+    if([[title substringFromIndex:length-1] isEqualToString:@"~"])
+    {
+        NSRange r = [title rangeOfString:@"~" options:NSBackwardsSearch range:NSMakeRange(0, length-1)];
+        if(r.location == NSNotFound)
+            return title;
+        
+        if(icon)
+            *icon = [[title substringWithRange:NSMakeRange(r.location+1, length-r.location-2)] retain];
+        title = [title substringToIndex:r.location];
+    }
+    return title;    
+}
+
 
 @end
