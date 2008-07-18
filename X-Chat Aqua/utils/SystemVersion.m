@@ -92,7 +92,9 @@ static SystemVersion * shared_instance;
         buf=strchr(buf, '.')+1;
         if(buf) {
             minor = atoi(buf);
-            buf=strchr(buf, '.')+1;
+            buf=strchr(buf, '.');
+            if(buf)
+                ++buf;
         }
         if(buf)
             micro = atoi(buf);  
