@@ -37,7 +37,6 @@
 		0F2FF0480E1FD15000DE4D41 /* python.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC8F3E80DEEDA0C00504F31 /* python.c */; };
 		0F2FF04A0E1FD15000DE4D41 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F3F50DEEDAB300504F31 /* Python.framework */; };
 		0F2FF04B0E1FD15000DE4D41 /* libglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F4020DEEE00000504F31 /* libglib.a */; };
-		0F3062070D8472A80084F2CA /* Info devel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F3062060D8472A80084F2CA /* Info devel.plist */; };
 		0F3062540D84958E0084F2CA /* xchat.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F3062530D84958E0084F2CA /* xchat.strings */; };
 		0F7065540E1FA32E00FEA21C /* Changes in Resources */ = {isa = PBXBuildFile; fileRef = 0F7065530E1FA32E00FEA21C /* Changes */; };
 		0F8EA3670CFAA49B001AE9AE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA3660CFAA49B001AE9AE /* Info.plist */; };
@@ -237,7 +236,6 @@
 		0FC8F6AF0DEEF3AC00504F31 /* AquaChat.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA5F80CFB2500001AE9AE /* AquaChat.mm */; };
 		0FC8F6E00DEEF54800504F31 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */; };
 		0FC8F6ED0DEEF64200504F31 /* fe-aqua.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.mm */; };
-		0FC8F6FC0DEEF84C00504F31 /* Info devel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -330,7 +328,6 @@
 		0F2FF04F0E1FD15000DE4D41 /* python-tiger.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "python-tiger.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2FF0520E1FD15000DE4D41 /* python-tiger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "python-tiger-Info.plist"; sourceTree = "<group>"; };
 		0F30611F0D83C5830084F2CA /* AquaChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AquaChat.h; path = "fe-aqua/AquaChat.h"; sourceTree = "<group>"; };
-		0F3062060D8472A80084F2CA /* Info devel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info devel.plist"; path = "fe-aqua/Info devel.plist"; sourceTree = "<group>"; };
 		0F3062310D847D040084F2CA /* glibintl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glibintl.h; sourceTree = "<group>"; };
 		0F3062560D8495A20084F2CA /* be */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = be; path = localization/be.lproj/xchat.strings; sourceTree = "<group>"; };
 		0F3062570D8495AC0084F2CA /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = localization/ca.lproj/xchat.strings; sourceTree = "<group>"; };
@@ -697,7 +694,6 @@
 		0F94E9980E1F91AE003CA262 /* gmarkup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gmarkup.c; sourceTree = "<group>"; };
 		0F94E9AF0E1F92E3003CA262 /* chanopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = chanopt.c; path = common/chanopt.c; sourceTree = "<group>"; };
 		0F94E9B00E1F92E3003CA262 /* chanopt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = chanopt.h; path = common/chanopt.h; sourceTree = "<group>"; };
-		0FC8F3DF0DEED9AB00504F31 /* Info devel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Info devel.plist"; sourceTree = "<group>"; };
 		0FC8F3E80DEEDA0C00504F31 /* python.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = python.c; path = plugins/python/python.c; sourceTree = "<group>"; };
 		0FC8F3F50DEEDAB300504F31 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		0FC8F4020DEEE00000504F31 /* libglib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libglib.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -707,7 +703,7 @@
 		0FC8F4E40DEEE6F200504F31 /* xalocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = xalocalization.m; path = glib/xalocalization.m; sourceTree = "<group>"; };
 		0FC8F6DA0DEEF50100504F31 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info devel.plist"; sourceTree = "<group>"; };
+		0FDE6C820E2704F00010E0D9 /* TBD.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = TBD.rtf; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -888,7 +884,6 @@
 		0F8EA3650CFAA470001AE9AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0F3062060D8472A80084F2CA /* Info devel.plist */,
 				0F8EA7900CFB6CF9001AE9AE /* SGRequest.nib */,
 				0F8EA7910CFB6CF9001AE9AE /* TabMenu.nib */,
 				0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */,
@@ -1303,17 +1298,16 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				0F3062530D84958E0084F2CA /* xchat.strings */,
-				0FC8F3DF0DEED9AB00504F31 /* Info devel.plist */,
 				0FC8F3F50DEEDAB300504F31 /* Python.framework */,
 				0FC8F4860DEEE3EE00504F31 /* Cocoa.framework */,
 				0FC8F6DA0DEEF50100504F31 /* AppKit.framework */,
 				0FC8F6DF0DEEF54800504F31 /* libiconv.dylib */,
-				0FC8F6FB0DEEF84C00504F31 /* Info devel.plist */,
 				0F2FEF2C0E1FAB1500DE4D41 /* python-leopard-Info.plist */,
 				0F2FF0520E1FD15000DE4D41 /* python-tiger-Info.plist */,
 				0F8F06D80E1FDA8500359159 /* perl-leopard-Info.plist */,
 				0F8F08120E1FE00800359159 /* tcl-Info.plist */,
 				0F8F08170E1FE01800359159 /* Tcl.framework */,
+				0FDE6C820E2704F00010E0D9 /* TBD.rtf */,
 			);
 			name = "X-Chat Aqua";
 			sourceTree = "<group>";
@@ -1612,9 +1606,7 @@
 				0F8EA7A10CFB6CF9001AE9AE /* xchat.icns in Resources */,
 				0F8EA7A20CFB6CF9001AE9AE /* xchat.tiff in Resources */,
 				0F8EA7A30CFB6CF9001AE9AE /* yellow.tiff in Resources */,
-				0F3062070D8472A80084F2CA /* Info devel.plist in Resources */,
 				0F3062540D84958E0084F2CA /* xchat.strings in Resources */,
-				0FC8F6FC0DEEF84C00504F31 /* Info devel.plist in Resources */,
 				0F7065540E1FA32E00FEA21C /* Changes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2304,7 +2296,7 @@
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				VALID_ARCHS = "i386 ppc ppc64 ppc7400 ppc970 x86_64";
-				XCHAT_AQUA_VERSION = 0.17.0;
+				XCHAT_AQUA_VERSION = 0.17.0b1;
 			};
 			name = Debug;
 		};

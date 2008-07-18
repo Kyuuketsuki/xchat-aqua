@@ -86,7 +86,8 @@ static SystemVersion * shared_instance;
     system_version = [[dict valueForKey:@"ProductVersion"] retain];
     
     {
-        char * buf = strdup([system_version UTF8String]);
+        char * orig_buf, * buf = strdup([system_version UTF8String]);
+        orig_buf = buf;
         major = atoi(buf);
         buf=strchr(buf, '.')+1;
         if(buf) {
@@ -95,7 +96,7 @@ static SystemVersion * shared_instance;
         }
         if(buf)
             micro = atoi(buf);  
-        free(buf);
+        free(orig_buf);
     }
     
     system_branch = [[NSString alloc] initWithFormat:@"%d.%d", major, minor];
