@@ -47,7 +47,7 @@ static void bundle_loader_load_bundle( char * word[], char * word_eol[])
     
     bundle_path = CFStringCreateWithCString(0, word[2], kCFStringEncodingUTF8);
     
-    url = CFURLCreateWithFileSystemPath(0, bundle_path, 0, 0);
+    url = CFURLCreateWithFileSystemPath(0, bundle_path, (CFURLPathStyle)0, 0);
     bundle = CFBundleCreate(0, url);
     
     CFRelease(url);

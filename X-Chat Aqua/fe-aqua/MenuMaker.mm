@@ -452,7 +452,7 @@ static MenuMaker *defaultMenuMaker;
 
 - (NSString *)stripImageFromTitle:(NSString *)title icon:(NSString **)icon
 {
-    NSUInteger length; 
+    int length;
     title = [title stringByReplacingOccurrencesOfString:@"_" withString:@""];
     length = [title length];
     if([[title substringFromIndex:length-1] isEqualToString:@"~"])
